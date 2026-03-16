@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Eastern Plant Sales &amp; Services</title>
+  <meta name="description" content="Get in touch with Eastern Plant Sales &amp; Services. Enquire about Takeuchi excavators, parts, service, or finance across Norfolk and Suffolk." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #0d0e18; color: #fff; overflow-x: hidden; }
+
+    .logo-light .cls-2 { fill: #ffffff !important; }
+    .logo-light .cls-3 { fill: rgba(255,255,255,0.55) !important; }
+    .logo-light .cls-1 { fill: #e9292d !important; }
+
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,14,24,0.96); backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+      padding: 1rem 0;
+    }
+    .nav-link {
+      position: relative; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: #e9292d;
+      transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #fff; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #e9292d; color: #fff;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.85rem 2rem; border: 1.5px solid #e9292d;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover { background: #c0181c; border-color: #c0181c; }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .section-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #e9292d;
+      display: flex !important; align-items: center; gap: 0.75rem;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 1.5rem; height: 1px;
+      background: currentColor; flex-shrink: 0;
+    }
+
+    /* Form */
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: #9c9c9c;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: #111320;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem; font-weight: 300;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.25s ease;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #e9292d;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-group select option { background: #111320; }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    footer { background: #070810; border-top: 1px solid rgba(255,255,255,0.06); }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="/" aria-label="Eastern Plant Sales &amp; Services — home">
+      <svg style="height:2.2rem;width:auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1619.46 270" aria-label="Eastern Plant Sales &amp; Services">
+  <path fill="#e9292d" d="M405.15,263.39c-.1-1.38-.22-28.08-.13-30.58V53.81c0-13.03-8.57-24.58-21.05-28.21C325.37,8.6,264.57,0,202.64,0c-8.95,0-18.07.19-27.02.58l-12.74.51C114.68,3.98,67.25,12.19,21.27,25.54,8.79,29.17.28,40.72.28,53.72v178.99c.06,2.54-.06,29.23-.16,30.61-.8,12.55,2.37,27.79,9.43,45.24,16.01,39.53,48.74,57.89,97.3,103.07,33.79,30.74,58.4,46.27,76.34,61.84,11.23,9.79,27.76,9.79,39.02,0,17.91-15.53,42.49-31.03,76.21-61.71,25.41-23.68,46.5-39.98,63.12-55.8l-3.24-3.21-11.74-11.62-.03-.03-5.68-5.29L37.73,54.16c2.28-1.67,4.85-2.95,7.64-3.75,39.82-11.55,80.9-18.68,122.64-21.18l11.04-.45c7.76-.32,15.63-.48,23.39-.48,53.62,0,106.31,7.44,157.04,22.17,10.81,3.15,18.23,13.16,18.23,24.42v154.99c-.06,2.18.03,25.32.13,26.5.32,5.07-.1,10.69-1.25,16.72l22.88,25.38c4.43-13.25,6.32-25.03,5.68-35.11M92.18,139.68v135.54l67.19-73.52,43.06,39.34-62.16,67.71,36.14,28.55c15.05,12.71,37.03,12.71,52.11.06l42.55-35.78,53.75,48.65c-11.43,9.85-24.55,20.79-39.44,34.66-29.2,26.57-50.51,39.98-66.01,53.43-9.75,8.47-24.03,8.47-33.79,0-15.53-13.48-36.84-26.92-66.1-53.52-42.04-39.15-70.4-55.03-84.27-89.27-6.13-15.15-8.86-28.33-8.15-39.21.07-1.19.19-24.29.13-26.5V80.9l64.98,58.79Z"/>
+  <path fill="#e9292d" d="M303.2,123.09v82.41l-121.59-112.28h91.74c16.49,0,29.84,13.38,29.84,29.87"/>
+  <path fill="#ffffff" d="M589.43,261.41h-92.02V122.51h92.02v23.97h-62.95v33.5h59.39v22.33h-59.39v35.04h62.95v24.06Z"/>
+  <path fill="#ffffff" d="M600.11,231.76c0-18.77,14.44-29.65,40.14-31.18l25.99-1.54v-6.83c0-9.62-6.74-15.21-17.33-15.21s-17.13,5.2-18.48,12.8h-25.7c1.06-20.02,18.1-33.79,45.43-33.79s43.7,13.67,43.7,34.46v70.94h-27.14v-15.79h-.58c-5.78,10.97-18.58,17.42-31.47,17.42-19.64,0-34.56-12.71-34.56-31.28ZM666.24,223.58v-7.51l-21.75,1.35c-10.49.77-16.46,5.49-16.46,12.8,0,7.7,6.35,12.51,15.88,12.51,12.22,0,22.33-7.99,22.33-19.15Z"/>
+  <path fill="#ffffff" d="M749.78,156.01c25.89,0,42.74,13.09,43.12,33.11h-25.89c-.58-8.28-7.22-13.38-17.61-13.38-9.72,0-16.07,4.43-16.07,11.07,0,5.1,4.43,8.57,13.48,10.68l19.73,4.24c20.69,4.62,29.07,12.8,29.07,28.2,0,20.31-18.67,33.69-45.91,33.69s-44.47-13.28-46.01-33.4h27.43c1.35,8.66,8.18,13.67,19.35,13.67s17.13-4.24,17.13-10.97c0-5.2-3.47-8.09-12.71-10.3l-19.06-4.24c-19.54-4.43-29.55-14.63-29.55-29.84,0-19.64,17.04-32.53,43.51-32.53Z"/>
+  <path fill="#ffffff" d="M841.21,134.45v23.77h19.06v21.18h-19.06v49.38c0,7.89,3.85,11.65,12.13,11.65,2.5,0,5.1-.19,6.83-.48v20.69c-2.89.67-7.7,1.16-13.38,1.16-24.26,0-33.69-8.09-33.69-28.2v-54.19h-14.53v-21.18h14.53v-23.77h28.11Z"/>
+  <path fill="#ffffff" d="M965.85,229.83c-3.08,20.21-21.56,33.79-47.07,33.79-31.76,0-50.82-20.31-50.82-53.32s19.25-54.29,49.76-54.29,48.99,20.31,48.99,51.69v8.57h-71.13v1.73c0,14.73,9.34,24.83,23.68,24.83,10.3,0,18.19-5.1,20.79-12.99h25.8ZM895.88,199.03h43.8c-.58-13.19-9.14-22.23-21.66-22.23s-21.18,9.34-22.14,22.23Z"/>
+  <path fill="#ffffff" d="M977.2,158.22h27.14v18.58h.58c3.66-13.09,12.42-20.21,24.54-20.21,3.27,0,6.06.48,7.99,1.06v24.74c-2.31-.96-6.16-1.64-10.2-1.64-13.86,0-21.95,8.47-21.95,23v57.66h-28.11v-103.19Z"/>
+  <path fill="#ffffff" d="M1044.96,158.22h27.14v18.39h.58c5.49-12.8,16.36-20.31,32.25-20.31,22.91,0,35.81,14.44,35.81,38.6v66.51h-28.11v-60.64c0-13.47-6.35-21.18-18.96-21.18s-20.6,9.24-20.6,22.62v59.2h-28.11v-103.19Z"/>
+  <path fill="#ffffff" d="M1248.53,122.51c28.49,0,48.13,18.96,48.13,47.55s-20.31,47.55-49.57,47.55h-25.99v43.8h-29.07V122.51h56.5ZM1221.09,194.89h19.64c16.65,0,26.37-8.86,26.37-24.74s-9.63-24.64-26.28-24.64h-19.73v49.38Z"/>
+  <path fill="#ffffff" d="M1308.1,122.51h28.11v138.9h-28.11V122.51Z"/>
+  <path fill="#ffffff" d="M1347.27,231.76c0-18.77,14.44-29.65,40.14-31.18l25.99-1.54v-6.83c0-9.62-6.74-15.21-17.33-15.21s-17.13,5.2-18.48,12.8h-25.7c1.06-20.02,18.1-33.79,45.43-33.79s43.7,13.67,43.7,34.46v70.94h-27.14v-15.79h-.58c-5.78,10.97-18.58,17.42-31.47,17.42-19.64,0-34.56-12.71-34.56-31.28ZM1413.4,223.58v-7.51l-21.75,1.35c-10.49.77-16.46,5.49-16.46,12.8,0,7.7,6.35,12.51,15.88,12.51,12.22,0,22.33-7.99,22.33-19.15Z"/>
+  <path fill="#ffffff" d="M1455.16,158.22h27.14v18.39h.58c5.49-12.8,16.36-20.31,32.25-20.31,22.91,0,35.81,14.44,35.81,38.6v66.51h-28.11v-60.64c0-13.47-6.35-21.18-18.96-21.18s-20.6,9.24-20.6,22.62v59.2h-28.11v-103.19Z"/>
+  <path fill="#ffffff" d="M1600.4,134.45v23.77h19.06v21.18h-19.06v49.38c0,7.89,3.85,11.65,12.13,11.65,2.5,0,5.1-.19,6.83-.48v20.69c-2.89.67-7.7,1.16-13.38,1.16-24.26,0-33.69-8.09-33.69-28.2v-54.19h-14.53v-21.18h14.53v-23.77h28.11Z"/>
+</svg>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/machines.html" class="nav-link">Machines</a>
+      <a href="/#why" class="nav-link">Why Us</a>
+      <a href="/#territory" class="nav-link">Territory</a>
+      <a href="/contact.html" class="nav-link active">Contact</a>
+      <a href="/contact.html" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.7rem;">Enquire Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page header -->
+<section style="padding:10rem 0 5rem;background:#0d0e18;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 90% 30%,rgba(233,41,45,0.06) 0%,transparent 60%);pointer-events:none;"></div>
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+    <span class="section-label">Get In Touch</span>
+    <h1 style="font-size:clamp(3rem,7vw,7rem);font-weight:900;line-height:0.92;letter-spacing:-0.04em;margin-top:1rem;">
+      Contact Us
+    </h1>
+    <p style="font-size:1rem;font-weight:300;line-height:1.75;color:#9c9c9c;margin-top:1.5rem;max-width:500px;">
+      Tell us what you're looking for. We'll respond directly — no scripts, no sales team, just the people who know the machines.
+    </p>
+  </div>
+</section>
+
+<!-- Contact section -->
+<section style="padding:2rem 0 7rem;background:#0d0e18;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16">
+
+      <!-- Form -->
+      <div>
+        <form style="display:flex;flex-direction:column;gap:1.25rem;" onsubmit="handleSubmit(event)">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="07700 000000" />
+          </div>
+
+          <div class="form-group">
+            <label for="enquiry-type">Enquiry Type</label>
+            <select id="enquiry-type" name="enquiry_type">
+              <option value="">Select…</option>
+              <option value="new-machine">New Machine Purchase</option>
+              <option value="used-machine">Used Machine</option>
+              <option value="finance">Finance Enquiry</option>
+              <option value="parts">Parts &amp; Accessories</option>
+              <option value="service">Service &amp; Repair</option>
+              <option value="demo">Arrange a Demo</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you're looking for…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="justify-content:center;margin-top:0.5rem;">
+            Send Enquiry →
+          </button>
+        </form>
+        <div id="form-success" style="display:none;margin-top:1.5rem;padding:1.25rem;background:#111320;border-left:3px solid #e9292d;">
+          <p style="font-size:0.9rem;font-weight:500;">Thanks — we'll be in touch shortly.</p>
+        </div>
+      </div>
+
+      <!-- Info panel -->
+      <div style="display:flex;flex-direction:column;gap:3rem;">
+
+        <div>
+          <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;margin-bottom:1rem;">Location</p>
+          <p style="font-size:1rem;font-weight:300;line-height:1.75;color:#9c9c9c;">
+            Snetterton Business Park<br>
+            Norfolk<br>
+            NR16 2JU
+          </p>
+        </div>
+
+        <div>
+          <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;margin-bottom:1rem;">Territory</p>
+          <p style="font-size:1rem;font-weight:300;line-height:1.75;color:#9c9c9c;">
+            We serve all of Norfolk and Suffolk as the exclusive authorised Takeuchi dealer for the region.
+          </p>
+        </div>
+
+        <div>
+          <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;margin-bottom:1rem;">Response Time</p>
+          <p style="font-size:1rem;font-weight:300;line-height:1.75;color:#9c9c9c;">
+            We aim to respond to all enquiries within one business day.
+          </p>
+        </div>
+
+        <!-- Brand mark -->
+        <div style="padding-top:2rem;border-top:1px solid rgba(255,255,255,0.06);">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.27 480.81" style="height:5rem;width:auto;opacity:0.15;" aria-hidden="true">
+            <path d="M405.15,263.39c-.1-1.38-.22-28.08-.13-30.58V53.81c0-13.03-8.57-24.58-21.05-28.21C325.37,8.6,264.57,0,202.64,0c-8.95,0-18.07.19-27.02.58l-12.74.51C114.68,3.98,67.25,12.19,21.27,25.54,8.79,29.17.28,40.72.28,53.72v178.99c.06,2.54-.06,29.23-.16,30.61-.8,12.55,2.37,27.79,9.43,45.24,16.01,39.53,48.74,57.89,97.3,103.07,33.79,30.74,58.4,46.27,76.34,61.84,11.23,9.79,27.76,9.79,39.02,0,17.91-15.53,42.49-31.03,76.21-61.71,25.41-23.68,46.5-39.98,63.12-55.8l-3.24-3.21-11.74-11.62-.03-.03-5.68-5.29L37.73,54.16c2.28-1.67,4.85-2.95,7.64-3.75,39.82-11.55,80.9-18.68,122.64-21.18l11.04-.45c7.76-.32,15.63-.48,23.39-.48,53.62,0,106.31,7.44,157.04,22.17,10.81,3.15,18.23,13.16,18.23,24.42v154.99c-.06,2.18.03,25.32.13,26.5.32,5.07-.1,10.69-1.25,16.72l22.88,25.38c4.43-13.25,6.32-25.03,5.68-35.11M92.18,139.68v135.54l67.19-73.52,43.06,39.34-62.16,67.71,36.14,28.55c15.05,12.71,37.03,12.71,52.11.06l42.55-35.78,53.75,48.65c-11.43,9.85-24.55,20.79-39.44,34.66-29.2,26.57-50.51,39.98-66.01,53.43-9.75,8.47-24.03,8.47-33.79,0-15.53-13.48-36.84-26.92-66.1-53.52-42.04-39.15-70.4-55.03-84.27-89.27-6.13-15.15-8.86-28.33-8.15-39.21.07-1.19.19-24.29.13-26.5V80.9l64.98,58.79Z" fill="#e9292d"/>
+            <path d="M303.2,123.09v82.41l-121.59-112.28h91.74c16.49,0,29.84,13.38,29.84,29.87" fill="#e9292d"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer style="padding:3rem 0 2rem;">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <p style="font-size:0.72rem;color:#9c9c9c;">© 2025 Eastern Plant Sales &amp; Services Ltd.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="/" style="font-size:0.72rem;color:#9c9c9c;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9c9c9c'">Home</a>
+      <a href="/machines.html" style="font-size:0.72rem;color:#9c9c9c;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9c9c9c'">Machines</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('form-success').style.display = 'block';
+  e.target.style.opacity = '0.4';
+  e.target.style.pointerEvents = 'none';
+}
+</script>
+
+</body>
+</html>

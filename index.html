@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eastern Plant Sales &amp; Services — Premium Takeuchi Excavators, East Anglia</title>
+  <meta name="description" content="Eastern Plant Sales &amp; Services is a specialist Takeuchi excavator dealership serving Norfolk and Suffolk. Premium machinery, expert knowledge, owner-led service." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ep-red':      '#e9292d',
+            'ep-red-dark': '#c0181c',
+            'ep-dark':     '#0d0e18',
+            'ep-charcoal': '#434344',
+            'ep-grey':     '#9c9c9c',
+            'ep-light':    '#f5f5f3',
+          },
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d0e18;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* SVG logo colour overrides */
+    .logo-light .cls-2, .logo-light .fc2 { fill: #ffffff !important; }
+    .logo-light .cls-3, .logo-light .fc3 { fill: rgba(255,255,255,0.55) !important; }
+    .logo-light .cls-1, .logo-light .fc1 { fill: #e9292d !important; }
+    .logo-dark .cls-2, .logo-dark .fc2   { fill: #0d0e18 !important; }
+    .logo-dark .cls-3, .logo-dark .fc3   { fill: #727474 !important; }
+    .logo-dark .cls-1, .logo-dark .fc1   { fill: #e9292d !important; }
+
+    /* Grain texture */
+    .grain::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* Nav */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+      padding: 1.25rem 0;
+    }
+    #nav.scrolled {
+      background: rgba(13,14,24,0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+      padding: 0.875rem 0;
+    }
+    .nav-link {
+      position: relative;
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute;
+      bottom: -2px; left: 0; width: 0; height: 1px;
+      background: #e9292d;
+      transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .nav-link:hover { color: #ffffff; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 1px solid #e9292d; outline-offset: 4px; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      background: #0d0e18;
+      background-image: url('Brand_Assets/Photography/Takeuchi-TB290-2-Excavator-Thumbnail-scaled.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      overflow: hidden;
+    }
+
+    /* Dark gradient overlay — lighter at top (shows sky), heavy at bottom (text legibility) */
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(13,14,24,0.35) 0%, rgba(13,14,24,0.55) 45%, rgba(13,14,24,0.9) 75%, rgba(13,14,24,0.98) 100%),
+        radial-gradient(ellipse 50% 60% at 85% 10%, rgba(233,41,45,0.06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* Vertical grid lines */
+    .grid-line {
+      position: absolute; top: 0; bottom: 0; width: 1px;
+      background: rgba(255,255,255,0.04);
+      transform-origin: top center; transform: scaleY(0);
+      transition: transform 1.6s cubic-bezier(0.22,1,0.36,1);
+    }
+    .grid-line.visible { transform: scaleY(1); }
+    .grid-line:nth-of-type(1) { left: 16.66%; transition-delay: 0.05s; }
+    .grid-line:nth-of-type(2) { left: 33.33%; transition-delay: 0.15s; }
+    .grid-line:nth-of-type(3) { left: 50%;    transition-delay: 0.25s; }
+    .grid-line:nth-of-type(4) { left: 66.66%; transition-delay: 0.35s; }
+    .grid-line:nth-of-type(5) { left: 83.33%; transition-delay: 0.45s; }
+
+    /* Animated background mark */
+    @keyframes mark-spin {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to   { transform: translateY(-50%) rotate(360deg); }
+    }
+    .hero-mark {
+      position: absolute; right: -6%; top: 50%;
+      height: 78vh; width: auto;
+      opacity: 0.055;
+      animation: mark-spin 140s linear infinite;
+      pointer-events: none;
+    }
+
+    /* Bottom-anchored hero content */
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 2rem 5rem;
+      max-width: 1280px; width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Massive display headline */
+    .hero-display {
+      font-size: clamp(4.5rem, 11vw, 12rem);
+      font-weight: 600;
+      line-height: 0.88;
+      letter-spacing: -0.055em;
+      color: #ffffff;
+    }
+
+    @keyframes reveal-up {
+      from { opacity: 0; transform: translateY(60px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-tag    { animation: reveal-up 0.9s cubic-bezier(0.22,1,0.36,1) 0.2s both; }
+    .hero-sub    { animation: reveal-up 0.9s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+    .hero-cta    { animation: reveal-up 0.9s cubic-bezier(0.22,1,0.36,1) 0.75s both; }
+    .hero-stats  { animation: reveal-up 0.9s cubic-bezier(0.22,1,0.36,1) 0.95s both; }
+
+    /* Horizontal rule */
+    .hero-rule { width: 3rem; height: 2px; background: #e9292d; display: block; }
+
+    /* Section labels */
+    .section-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #e9292d;
+      display: flex !important; align-items: center; gap: 0.75rem;
+    }
+    .section-label::before {
+      content: ''; display: block;
+      width: 1.5rem; height: 1px;
+      background: currentColor; flex-shrink: 0;
+    }
+    .section-label-centered {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      display: flex !important; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .section-label-centered::before, .section-label-centered::after {
+      content: ''; display: block;
+      width: 1.5rem; height: 1px;
+      background: currentColor; flex-shrink: 0; opacity: 0.5;
+    }
+    .section-label-white { color: rgba(255,255,255,0.6); }
+
+    /* CTA Buttons */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #e9292d; color: #ffffff;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 1.5px solid #e9292d;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover { background: #c0181c; border-color: #c0181c; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:focus-visible { outline: 2px solid #e9292d; outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: #ffffff;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+    .btn-outline:active { transform: scale(0.98); }
+    .btn-outline:focus-visible { outline: 2px solid rgba(255,255,255,0.5); outline-offset: 3px; }
+
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: #0d0e18;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 1.5px solid rgba(13,14,24,0.35);
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+    }
+    .btn-outline-dark:hover { border-color: #0d0e18; background: rgba(13,14,24,0.06); }
+    .btn-outline-dark:active { transform: scale(0.98); }
+
+    /* Machine Cards */
+    .machine-card {
+      position: relative; overflow: hidden;
+      background: #f5f5f3;
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+    }
+    .machine-card:hover { transform: translateY(-4px); }
+    .machine-card:focus-within { outline: 2px solid #e9292d; }
+    .machine-card-img { position: relative; aspect-ratio: 4/3; overflow: hidden; background: #1e2030; }
+    .machine-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+    .machine-card:hover .machine-card-img img { transform: scale(1.04); }
+    .machine-card-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,14,24,0.5) 0%, transparent 50%);
+    }
+
+    /* Value blocks */
+    .value-block {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 2rem 0;
+      transition: border-color 0.3s ease;
+    }
+    .value-block:hover { border-top-color: #e9292d; }
+
+    /* Industry tags */
+    .industry-tag {
+      border: 1px solid rgba(13,14,24,0.15);
+      padding: 1.25rem 1.5rem;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #434344;
+      display: flex; align-items: center; gap: 0.75rem;
+      transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      cursor: default;
+    }
+    .industry-tag:hover { background: #e9292d; border-color: #e9292d; color: #ffffff; }
+    .industry-tag:hover .industry-dot { background: #ffffff; }
+    .industry-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #e9292d; flex-shrink: 0;
+      transition: background 0.25s ease;
+    }
+
+    /* Stat blocks */
+    .stat-block { border-left: 2px solid #e9292d; padding-left: 1.25rem; }
+
+    /* Takeuchi section */
+    .takeuchi-bg {
+      background: #0d0e18; position: relative; overflow: hidden;
+    }
+    .takeuchi-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 100% 50%, rgba(233,41,45,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 0% 100%, rgba(233,41,45,0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: #e9292d; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 0%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 60% at 0% 100%, rgba(0,0,0,0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Location section */
+    .location-section {
+      background: #434344; position: relative; overflow: hidden;
+    }
+    .location-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(233,41,45,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Footer */
+    footer { background: #070810; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0d0e18; }
+    ::-webkit-scrollbar-thumb { background: #e9292d; border-radius: 3px; }
+
+    /* Mobile nav */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+
+    /* Divider text */
+    .divider-text {
+      display: flex; align-items: center; gap: 1rem;
+      color: #9c9c9c; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .divider-text::before, .divider-text::after {
+      content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08);
+    }
+
+    /* Stair-step section transition */
+    .stair-top {
+      position: relative;
+    }
+    .stair-top::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: 0; right: 0;
+      height: 2px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* ── PAGE LOADER ── */
+    #ep-loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #0d0e18;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    #ep-loader.hide { opacity: 0; pointer-events: none; }
+    .ep-loader-logo {
+      display: flex; align-items: center; gap: 1.1rem;
+    }
+    /* Mark: draws in left-to-right via clip-path */
+    .ep-loader-mark {
+      flex-shrink: 0;
+      clip-path: inset(0 100% 0 0);
+      animation: mark-draw 0.95s cubic-bezier(0.76,0,0.24,1) 0.15s forwards;
+    }
+    .ep-loader-mark img { width: 4.5rem; height: auto; display: block; }
+    @keyframes mark-draw {
+      0%   { clip-path: inset(0 100% 0 0); }
+      100% { clip-path: inset(0 0%   0 0); }
+    }
+    /* Wordmark: each line slides up from overflow:hidden */
+    .ep-loader-words {
+      display: flex; flex-direction: column; gap: 0.06rem; overflow: hidden;
+    }
+    .ep-loader-words span {
+      display: block; overflow: hidden;
+    }
+    .ep-loader-words span em {
+      display: block; font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem; font-weight: 600;
+      letter-spacing: -0.04em; line-height: 0.92;
+      color: #ffffff;
+      transform: translateY(110%);
+      animation: word-rise 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    .ep-loader-words span:nth-child(1) em { animation-delay: 0.8s; }
+    .ep-loader-words span:nth-child(2) em { animation-delay: 1.0s; }
+    @keyframes word-rise {
+      to { transform: translateY(0); }
+    }
+
+    /* ── LINE-BY-LINE HERO REVEAL ── */
+    .line-wrap { display: block; overflow: hidden; line-height: 0.92; }
+    .line-inner {
+      display: block;
+      animation: line-up 1s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    .line-inner-1 { animation-delay: 0.55s; }
+    .line-inner-2 { animation-delay: 0.75s; }
+    @keyframes line-up {
+      from { transform: translateY(105%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    /* ── MARQUEE STRIP ── */
+    .marquee-strip {
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: #070810;
+      padding: 0.85rem 0;
+      position: relative; z-index: 2;
+    }
+    .marquee-track {
+      display: flex; align-items: center;
+      animation: marquee-scroll 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding: 0 2rem; white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+    .marquee-sep {
+      color: #e9292d; font-size: 0.45rem; flex-shrink: 0;
+    }
+
+    /* ── BUTTON TEXT ROLL ── */
+    .btn-primary, .btn-outline, .btn-outline-dark, [data-roll] {
+      position: relative; overflow: hidden;
+    }
+    .btn-roll {
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-roll-top,
+    .btn-roll-bottom {
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      white-space: nowrap;
+    }
+    .btn-roll-bottom {
+      position: absolute;
+      top: 100%; left: 0;
+      width: 100%;
+    }
+    .btn-primary:hover .btn-roll-top,
+    .btn-outline:hover .btn-roll-top,
+    .btn-outline-dark:hover .btn-roll-top,
+    .nav-link:hover .btn-roll-top,
+    [data-roll]:hover .btn-roll-top {
+      transform: translateY(-100%);
+    }
+    .btn-primary:hover .btn-roll-bottom,
+    .btn-outline:hover .btn-roll-bottom,
+    .btn-outline-dark:hover .btn-roll-bottom,
+    .nav-link:hover .btn-roll-bottom,
+    [data-roll]:hover .btn-roll-bottom {
+      transform: translateY(-100%);
+    }
+
+    /* ── STAT COUNTER ── */
+    .stat-num { font-variant-numeric: tabular-nums; }
+
+    /* ── PASSWORD GATE ── */
+    #ep-gate {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #0d0e18;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1);
+    }
+    #ep-gate.unlocking {
+      opacity: 0; pointer-events: none;
+    }
+    .gate-inner {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 2rem; width: 100%; max-width: 360px; padding: 2rem;
+    }
+    .gate-label {
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .gate-input-wrap {
+      position: relative; width: 100%;
+    }
+    #gate-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-align: center;
+      padding: 0.9rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+      caret-color: #e9292d;
+    }
+    #gate-input::placeholder { color: rgba(255,255,255,0.18); letter-spacing: 0.18em; }
+    #gate-input:focus { border-color: rgba(255,255,255,0.3); }
+    #gate-input.gate-error { border-color: #e9292d; animation: gate-shake 0.35s cubic-bezier(0.22,1,0.36,1); }
+    @keyframes gate-shake {
+      0%,100% { transform: translateX(0); }
+      20%      { transform: translateX(-6px); }
+      60%      { transform: translateX(6px); }
+      80%      { transform: translateX(-3px); }
+    }
+    .gate-error-msg {
+      font-size: 0.6rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #e9292d; opacity: 0;
+      transition: opacity 0.2s ease;
+      text-align: center;
+    }
+    .gate-error-msg.visible { opacity: 1; }
+  </style>
+</head>
+
+<body>
+
+<!-- ── PASSWORD GATE ── -->
+<div id="ep-gate" role="dialog" aria-modal="true" aria-label="Site access">
+  <div class="gate-inner">
+    <img src="Brand_Assets/Logos/eastern-plant-mark.svg" alt="Eastern Plant" style="height:3.5rem;width:auto;opacity:0.9;" />
+    <p class="gate-label">Preview Access</p>
+    <div class="gate-input-wrap">
+      <input id="gate-input" type="password" placeholder="Enter password" autocomplete="off" spellcheck="false" />
+    </div>
+    <p id="gate-error" class="gate-error-msg">Incorrect password</p>
+  </div>
+</div>
+
+<!-- ── PAGE LOADER ── -->
+<div id="ep-loader" aria-hidden="true">
+  <div class="ep-loader-logo">
+    <div class="ep-loader-mark">
+      <img src="Brand_Assets/Logos/eastern-plant-mark.svg" alt="" />
+    </div>
+    <div class="ep-loader-words">
+      <span><em>Eastern</em></span>
+      <span><em>Plant</em></span>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav id="nav" aria-label="Primary navigation">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+    <a href="/" class="flex-shrink-0 flex items-center" style="gap:0.75rem;text-decoration:none;" aria-label="Eastern Plant — home">
+      <img src="Brand_Assets/Logos/eastern-plant-mark.svg" style="height:3rem;width:auto;flex-shrink:0;" alt="" aria-hidden="true" />
+      <div style="display:flex;flex-direction:column;line-height:1;gap:0.1rem;">
+        <span style="font-size:1.25rem;font-weight:600;letter-spacing:-0.04em;color:#ffffff;font-family:'Inter',sans-serif;line-height:0.92;">Eastern</span>
+        <span style="font-size:1.25rem;font-weight:600;letter-spacing:-0.04em;color:#ffffff;font-family:'Inter',sans-serif;line-height:0.92;">Plant</span>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/machines.html" class="nav-link">Machines</a>
+      <a href="/#why" class="nav-link">Why Us</a>
+      <a href="/#territory" class="nav-link">Territory</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      <a href="/contact.html" class="btn-primary ml-4" style="padding:0.6rem 1.4rem;font-size:0.7rem;">Enquire Now</a>
+    </div>
+
+    <!-- Mobile burger -->
+    <button id="burger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu" aria-expanded="false">
+      <span class="block w-6 h-px bg-white transition-transform"></span>
+      <span class="block w-6 h-px bg-white transition-opacity"></span>
+      <span class="block w-6 h-px bg-white transition-transform"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden bg-ep-dark border-t border-white/10 mt-4">
+    <div class="px-6 py-6 flex flex-col gap-4">
+      <a href="/machines.html" class="nav-link text-base">Machines</a>
+      <a href="/#why" class="nav-link text-base">Why Us</a>
+      <a href="/#territory" class="nav-link text-base">Territory</a>
+      <a href="/contact.html" class="nav-link text-base">Contact</a>
+      <a href="/contact.html" class="btn-primary mt-2 justify-center">Enquire Now</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ── HERO ── -->
+<section id="hero" class="grain">
+
+  <!-- Vertical grid lines -->
+  <div class="grid-line"></div>
+  <div class="grid-line"></div>
+  <div class="grid-line"></div>
+  <div class="grid-line"></div>
+  <div class="grid-line"></div>
+
+  <!-- Bottom-anchored content -->
+  <div class="hero-content">
+
+    <!-- Eyebrow row -->
+    <div class="flex items-center justify-between mb-8 md:mb-12 hero-tag">
+      <span class="section-label">Norfolk &amp; Suffolk</span>
+      <span style="font-size:0.65rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);">Est. 2026</span>
+    </div>
+
+    <!-- Sub-headline -->
+    <div class="hero-sub" style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <p style="font-size:clamp(0.7rem,1.1vw,0.85rem);font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);">Authorised Dealer</p>
+      <span style="width:1px;height:1rem;background:rgba(255,255,255,0.2);display:inline-block;flex-shrink:0;"></span>
+      <img src="Brand_Assets/Logos/takeuchi-logo.svg" alt="Takeuchi" style="height:1rem;width:auto;opacity:0.6;filter:brightness(0) invert(1);" />
+    </div>
+
+    <!-- Display headline -->
+    <h1 class="hero-display" style="margin-bottom:2.5rem;">
+      <span class="line-wrap"><span class="line-inner line-inner-1">Eastern</span></span>
+      <span class="line-wrap"><span class="line-inner line-inner-2">Plant</span></span>
+    </h1>
+
+    <!-- Descriptor + CTA -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 hero-cta" style="margin-bottom:2rem;">
+      <p style="max-width:360px;font-size:0.95rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.6);">
+        Premium compact excavators and plant machinery for professionals across East Anglia.
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <a href="/machines.html" class="btn-primary">View Machines</a>
+        <a href="/contact.html" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats flex flex-wrap gap-8 pt-6" style="border-top:1px solid rgba(255,255,255,0.1);">
+      <div class="stat-block">
+        <p class="stat-num" data-count="20" data-suffix="+" style="font-size:1.6rem;font-weight:700;line-height:1;letter-spacing:-0.03em;">20+</p>
+        <p style="font-size:0.6rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Models Available</p>
+      </div>
+      <div class="stat-block">
+        <p class="stat-num" data-count="2" data-suffix="" style="font-size:1.6rem;font-weight:700;line-height:1;letter-spacing:-0.03em;">2</p>
+        <p style="font-size:0.6rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Counties Served</p>
+      </div>
+      <div class="stat-block">
+        <p style="font-size:1.6rem;font-weight:700;line-height:1;letter-spacing:-0.03em;">1st</p>
+        <p style="font-size:0.6rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:0.3rem;">Authorised Dealer</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── MARQUEE STRIP ── -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Authorised Takeuchi Dealer</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Norfolk &amp; Suffolk</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Compact Excavators</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Owner-Led Service</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Factory Warranty</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Japanese Engineering</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Genuine Parts</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">East Anglia</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Groundworks &amp; Agriculture</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Snetterton, Norfolk</span><span class="marquee-sep">◆</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Authorised Takeuchi Dealer</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Norfolk &amp; Suffolk</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Compact Excavators</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Owner-Led Service</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Factory Warranty</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Japanese Engineering</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Genuine Parts</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">East Anglia</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Groundworks &amp; Agriculture</span><span class="marquee-sep">◆</span>
+    <span class="marquee-item">Snetterton, Norfolk</span><span class="marquee-sep">◆</span>
+  </div>
+</div>
+
+<!-- ── BRAND INTRO ── -->
+<section id="about" class="relative overflow-hidden" style="background:#f5f5f3;padding:7rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <span class="section-label" style="color:#e9292d;">About Us</span>
+        <h2 class="reveal" style="font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:#0d0e18;margin-top:1.25rem;">
+          East Anglia's dedicated Takeuchi specialists.
+        </h2>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <p style="font-size:1.05rem;font-weight:300;line-height:1.8;color:#434344;margin-bottom:1.5rem;">
+          Eastern Plant Sales &amp; Services exists to bring genuine Takeuchi expertise to Norfolk and Suffolk. We combine the full backing of a Takeuchi-authorised dealership with the personal service and local knowledge that only an owner-managed business can offer.
+        </p>
+        <p style="font-size:1.05rem;font-weight:300;line-height:1.8;color:#434344;">
+          Whether you're a sole operator or a regional contractor, you'll deal directly with people who know the machines — and know the ground you're working.
+        </p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider-text reveal mt-16" style="color:#9c9c9c;">Eastern Plant Sales &amp; Services</div>
+
+    <!-- Three pillars -->
+    <div class="grid md:grid-cols-3 gap-0 mt-12 reveal reveal-delay-2">
+      <div class="value-block" style="border-top-color:rgba(13,14,24,0.12);border-top-width:1px;padding-right:3rem;">
+        <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;margin-bottom:0.75rem;">01</p>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#0d0e18;margin-bottom:0.5rem;">Authorised Dealer</h3>
+        <p style="font-size:0.9rem;font-weight:400;line-height:1.7;color:#434344;">Full Takeuchi backing — genuine parts, factory warranty, and certified support.</p>
+      </div>
+      <div class="value-block" style="border-top-color:rgba(13,14,24,0.12);border-top-width:1px;padding-right:3rem;">
+        <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;margin-bottom:0.75rem;">02</p>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#0d0e18;margin-bottom:0.5rem;">Owner-Led Service</h3>
+        <p style="font-size:0.9rem;font-weight:400;line-height:1.7;color:#434344;">No call centres, no handoffs. The people who sold your machine are there when you need them.</p>
+      </div>
+      <div class="value-block" style="border-top-color:rgba(13,14,24,0.12);border-top-width:1px;">
+        <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;margin-bottom:0.75rem;">03</p>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#0d0e18;margin-bottom:0.5rem;">Local Knowledge</h3>
+        <p style="font-size:0.9rem;font-weight:400;line-height:1.7;color:#434344;">Based at Snetterton, Norfolk. We know the terrain, the contractors, and the conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── WHY EASTERN PLANT ── -->
+<section id="why" style="background:#0d0e18;padding:7rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+      <div>
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-top:1.25rem;">
+          The difference is in how<br>we work.
+        </h2>
+      </div>
+      <p class="reveal reveal-delay-2" style="max-width:340px;font-size:0.95rem;font-weight:300;line-height:1.75;color:#9c9c9c;">
+        Every aspect of how we operate is built around making machine ownership effortless and exceptional.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-0">
+      <div class="value-block reveal">
+        <div style="display:flex;gap:1.5rem;align-items:flex-start;">
+          <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;padding-top:0.2rem;flex-shrink:0;">01</span>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;">Premium Machine Range</h3>
+            <p style="font-size:0.9rem;font-weight:300;line-height:1.75;color:#9c9c9c;">Takeuchi's full compact excavator lineup — from micro diggers to 8-tonne machines — with new and used stock.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-block reveal reveal-delay-1">
+        <div style="display:flex;gap:1.5rem;align-items:flex-start;">
+          <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;padding-top:0.2rem;flex-shrink:0;">02</span>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;">Fast Parts &amp; Service</h3>
+            <p style="font-size:0.9rem;font-weight:300;line-height:1.75;color:#9c9c9c;">Genuine Takeuchi parts available with fast turnaround. Field service across Norfolk and Suffolk.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-block reveal reveal-delay-2">
+        <div style="display:flex;gap:1.5rem;align-items:flex-start;">
+          <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;padding-top:0.2rem;flex-shrink:0;">03</span>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;">Finance &amp; Flexibility</h3>
+            <p style="font-size:0.9rem;font-weight:300;line-height:1.75;color:#9c9c9c;">Tailored finance packages structured around your cashflow — hire purchase, lease, and contract options available.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-block reveal reveal-delay-3">
+        <div style="display:flex;gap:1.5rem;align-items:flex-start;">
+          <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;padding-top:0.2rem;flex-shrink:0;">04</span>
+          <div>
+            <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;">Factory Warranty</h3>
+            <p style="font-size:0.9rem;font-weight:300;line-height:1.75;color:#9c9c9c;">Every new machine sold with full Takeuchi manufacturer warranty, backed by our own after-sales support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── TAKEUCHI BRAND ── -->
+<section id="takeuchi" class="takeuchi-bg" style="padding:7rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <span class="section-label">Our Brand Partner</span>
+
+        <!-- Takeuchi logo -->
+        <div class="reveal mt-6 mb-8" style="max-width:260px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1556.38 169.9" style="width:100%;height:auto;">
+            <defs><style>.t-cls{fill:#ffffff}</style></defs>
+            <path class="t-cls" d="M164.49,152.73c-5.12-10.29-6.64-19.82-6.41-30.61.15-6.99-.9-15.02.8-21.74,4.16-16.47,15.19-29.94,29.11-39.19l132.71.04c5.84,2.59,8.8,8.7,12.43,14.5.39-6.07,4.18-33.81-7.19-33.81l-99.77.02-12.44-.06-55.97-.35.08-41.24,184.94.08c13.49,0,23.78,9.06,30.56,19.56,5.34,8.26,6.43,17.63,6.42,27.62l-.07,110.08c0,4.38.39,7.97-.85,12.09l-40.67.2c-.85,0-3.52.03-3.71-.66l-1.47-5.21c-5.45,4.38-11.78,5.76-19.48,5.74l-126.74-.32c-9.87-.03-18.27-8.73-22.25-16.73ZM317.75,127.29l.14-19.08c-2.71-.75-5.79-1.57-8.36-1.57h-100.16c-1.42.01-4.71,1.25-6.17,1.95l.61,18.77,113.94-.07Z"/>
+            <path class="t-cls" d="M841.13,127.55l.32,42.26-7.99-.45-158.71-.03c-11.23,0-21.72-1.34-31.07-6.47-13.73-7.52-22.47-20.34-22.6-35.77l-.12-14.77.17-72.15c.06-23.22,25-39.07,44.91-39.09l131.72-.13c18.15-.02,39.37,2.75,42.11,24.25,2.29,17.95,2.19,36.23-.09,54.26-2.69,21.27-21.76,26.81-40.81,26.85l-127.23.25c-2.74,6.27-1.69,15.57,4.59,20.89l164.8.08ZM789.7,45.39c-.91-1.85-5.92-3.36-7.86-3.36l-106.73.04c-4.89,5.88-5.59,11.96-3.65,19.12l120.08-.03c.87-5.35.52-10.96-1.84-15.77Z"/>
+            <path class="t-cls" d="M1269.39,127.51l.35,42.27-139.06-.02c-23.9,0-49.01-16.06-49.1-43.91l-.27-82.04c-.09-27.61,26.61-43.52,51.87-42.79l136.63-.19-.19,41.09-126.59.06c-6.52,0-10.41,3.94-10.42,10.37l-.11,63.74c0,2.59.96,6.87,2.52,8.15s5.49,3.07,8.04,3.08l126.35.18Z"/>
+            <path class="t-cls" d="M1013.7.99l44.14-.26-.02,128.78c0,18.43-21.85,40.18-41.84,40.15l-118.23-.18c-24.75-.04-41.25-21.43-41.22-44.81l.15-124.42,41.75.17.38,115.36c.03,7.69,5.68,11.78,12.4,11.77l90.01-.16c2.68,0,8.55-2.12,10.05-4.13,1.91-5.05,2.52-12.45,2.51-18.24l-.09-104.01Z"/>
+            <polygon class="t-cls" points="563.21 169.69 480.93 106.75 480.93 61.05 563.31 .36 576.43 .12 637.52 .24 540.58 85.92 636.94 169.46 563.21 169.69"/>
+            <polygon class="t-cls" points="1411.32 106.56 1325.03 106.69 1324.86 169.33 1277.71 169.26 1277.71 .83 1324.93 .74 1325.08 61.17 1411.45 61.17 1411.32 106.56"/>
+            <path class="t-cls" d="M128.8,169.46l-47.63.21-.05-127.54-81.12-.29L.06.96l129.31.03c.73,12.48,1.02,23.71-.17,35.83l-.4,132.64Z"/>
+            <polygon class="t-cls" points="453.33 169.6 403.9 169.86 403.95 .39 452.97 .3 453.33 169.6"/>
+            <polygon class="t-cls" points="1488.16 .35 1488.09 169.79 1440.54 169.71 1440.57 .81 1455.88 0 1488.16 .35"/>
+            <polygon class="t-cls" points="1556.38 169.57 1509.05 169.88 1509.1 .27 1556.32 .28 1556.38 169.57"/>
+          </svg>
+        </div>
+
+        <h2 class="reveal reveal-delay-1" style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.5rem;">
+          Japanese engineering built for demanding ground.
+        </h2>
+        <p class="reveal reveal-delay-2" style="font-size:0.95rem;font-weight:300;line-height:1.8;color:#9c9c9c;margin-bottom:1rem;">
+          Takeuchi pioneered the compact excavator category and have spent decades refining it. Their machines are known for exceptional reliability, driver comfort, and performance in the tightest access conditions.
+        </p>
+        <p class="reveal reveal-delay-3" style="font-size:0.95rem;font-weight:300;line-height:1.8;color:#9c9c9c;">
+          As an authorised UK dealer, every Eastern Plant machine is sold with full factory warranty and genuine parts support.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-2 grid grid-cols-2 gap-4">
+        <div style="border:1px solid rgba(255,255,255,0.08);padding:2rem;">
+          <p style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:#ffffff;">1971</p>
+          <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#9c9c9c;margin-top:0.3rem;">Founded in Japan</p>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);padding:2rem;">
+          <p style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:#ffffff;">50+</p>
+          <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#9c9c9c;margin-top:0.3rem;">Years of Innovation</p>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);padding:2rem;">
+          <p style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:#ffffff;">Global</p>
+          <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#9c9c9c;margin-top:0.3rem;">Dealer Network</p>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.08);padding:2rem;">
+          <p style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;color:#e9292d;">No.1</p>
+          <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#9c9c9c;margin-top:0.3rem;">Compact Specialist</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── MACHINE CATEGORIES ── -->
+<section id="machines" style="background:#f5f5f3;padding:7rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+      <div>
+        <span class="section-label" style="color:#e9292d;">The Range</span>
+        <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:#0d0e18;margin-top:1.25rem;">
+          Machines for every job.
+        </h2>
+      </div>
+      <a href="/machines.html" class="btn-outline-dark reveal reveal-delay-2">View Full Range →</a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <a href="/machines.html" class="machine-card reveal">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/1e2030/ffffff?text=Micro+Excavators" alt="Micro Excavators" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.5rem;">0.8 – 2 Tonne</p>
+          <h3 style="font-size:1.1rem;font-weight:700;color:#0d0e18;margin-bottom:0.5rem;">Micro Excavators</h3>
+          <p style="font-size:0.85rem;font-weight:400;line-height:1.65;color:#434344;">Maximum performance in minimum space. Perfect for utility work, landscaping, and access-restricted sites.</p>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="/machines.html" class="machine-card reveal reveal-delay-1">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/1e2030/ffffff?text=Compact+Excavators" alt="Compact Excavators" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.5rem;">3 – 6 Tonne</p>
+          <h3 style="font-size:1.1rem;font-weight:700;color:#0d0e18;margin-bottom:0.5rem;">Compact Excavators</h3>
+          <p style="font-size:0.85rem;font-weight:400;line-height:1.65;color:#434344;">The workhorse of the range. Versatile, powerful, and proven across groundworks, civils, and agricultural use.</p>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="/machines.html" class="machine-card reveal reveal-delay-2">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/1e2030/ffffff?text=Mid+Range" alt="Mid Range Excavators" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.5rem;">6 – 9 Tonne</p>
+          <h3 style="font-size:1.1rem;font-weight:700;color:#0d0e18;margin-bottom:0.5rem;">Mid-Range Excavators</h3>
+          <p style="font-size:0.85rem;font-weight:400;line-height:1.65;color:#434344;">Serious dig power with exceptional cycle times. Built for demanding commercial and infrastructure projects.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── INDUSTRIES ── -->
+<section id="industries" style="background:#0d0e18;padding:7rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="mb-14">
+      <span class="section-label">Industries Served</span>
+      <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-top:1.25rem;">
+        Built for the people<br>who build things.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 reveal reveal-delay-1">
+      <div class="industry-tag">
+        <span class="industry-dot"></span>Groundworks
+      </div>
+      <div class="industry-tag">
+        <span class="industry-dot"></span>Agriculture
+      </div>
+      <div class="industry-tag">
+        <span class="industry-dot"></span>Landscaping
+      </div>
+      <div class="industry-tag">
+        <span class="industry-dot"></span>Utilities
+      </div>
+      <div class="industry-tag">
+        <span class="industry-dot"></span>House Building
+      </div>
+      <div class="industry-tag">
+        <span class="industry-dot"></span>Drainage
+      </div>
+      <div class="industry-tag">
+        <span class="industry-dot"></span>Demolition
+      </div>
+      <div class="industry-tag">
+        <span class="industry-dot"></span>Civil Engineering
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── TERRITORY / LOCATION ── -->
+<section id="territory" class="location-section grain" style="padding:7rem 0;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div>
+        <span class="section-label section-label-white">Our Territory</span>
+        <h2 class="reveal" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-top:1.25rem;">
+          Serving Norfolk<br>&amp; Suffolk.
+        </h2>
+        <p class="reveal reveal-delay-1" style="font-size:0.95rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.65);margin-top:1.25rem;max-width:400px;">
+          Based at Snetterton Business Park, we're ideally positioned to cover all of Norfolk and Suffolk with fast delivery, on-site demonstration, and field service across both counties.
+        </p>
+
+        <div class="reveal reveal-delay-2 mt-10 flex flex-col gap-4">
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="color:#e9292d;font-size:0.8rem;margin-top:0.15rem;flex-shrink:0;">▸</span>
+            <div>
+              <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Address</p>
+              <p style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.65);margin-top:0.15rem;">Snetterton Business Park, Norfolk, NR16 2JU</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="color:#e9292d;font-size:0.8rem;margin-top:0.15rem;flex-shrink:0;">▸</span>
+            <div>
+              <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Coverage</p>
+              <p style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.65);margin-top:0.15rem;">All of Norfolk and Suffolk — dealer territory exclusively held</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="color:#e9292d;font-size:0.8rem;margin-top:0.15rem;flex-shrink:0;">▸</span>
+            <div>
+              <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Delivery</p>
+              <p style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.65);margin-top:0.15rem;">Machine delivery and collection direct to your site</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map placeholder -->
+      <div class="reveal reveal-delay-2" style="position:relative;aspect-ratio:4/3;background:#2a2a2a;overflow:hidden;">
+        <img src="https://placehold.co/700x525/1a1a1a/666666?text=Norfolk+%26+Suffolk+Territory" alt="Eastern Plant territory map" style="width:100%;height:100%;object-fit:cover;opacity:0.6;" />
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(67,67,68,0.8) 0%,transparent 60%);"></div>
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem;">
+          <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;">Service Area</p>
+          <p style="font-size:1.1rem;font-weight:700;margin-top:0.25rem;">Norfolk &amp; Suffolk</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CTA ── -->
+<section class="cta-section grain" style="padding:7rem 0;">
+  <div class="max-w-7xl mx-auto px-6 text-center" style="position:relative;z-index:2;">
+
+    <span class="section-label-centered" style="color:rgba(255,255,255,0.7);margin-bottom:1.5rem;">Get Started</span>
+
+    <h2 class="reveal" style="font-size:clamp(2.5rem,5vw,4.5rem);font-weight:900;line-height:1;letter-spacing:-0.04em;max-width:800px;margin:0 auto 1.5rem;">
+      Ready to find your next machine?
+    </h2>
+    <p class="reveal reveal-delay-1" style="font-size:1rem;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.8);max-width:480px;margin:0 auto 2.5rem;">
+      Talk to us directly about your requirements. No pressure, just honest advice and the right machine for your needs.
+    </p>
+
+    <div class="reveal reveal-delay-2 flex gap-4 justify-center flex-wrap">
+      <a href="/contact.html" data-roll style="display:inline-flex;align-items:center;gap:0.5rem;background:#ffffff;color:#e9292d;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.85rem 2rem;border:1.5px solid #ffffff;transition:background 0.25s ease,transform 0.2s ease;">
+        Contact Us →
+      </a>
+      <a href="/machines.html" data-roll style="display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:#ffffff;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.85rem 2rem;border:1.5px solid rgba(255,255,255,0.5);transition:border-color 0.25s ease,transform 0.2s ease;">
+        Browse Machines
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer style="padding:4rem 0 2.5rem;">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-4 gap-12 pb-10" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <a href="/" style="display:inline-flex;align-items:center;gap:0.75rem;text-decoration:none;margin-bottom:1.25rem;">
+          <img src="Brand_Assets/Logos/eastern-plant-mark.svg" style="height:3rem;width:auto;flex-shrink:0;" alt="" aria-hidden="true" />
+          <div style="display:flex;flex-direction:column;gap:0.1rem;">
+            <span style="font-size:1.25rem;font-weight:600;letter-spacing:-0.04em;color:#ffffff;font-family:'Inter',sans-serif;line-height:0.92;">Eastern</span>
+            <span style="font-size:1.25rem;font-weight:600;letter-spacing:-0.04em;color:#ffffff;font-family:'Inter',sans-serif;line-height:0.92;">Plant</span>
+          </div>
+        </a>
+        <p style="font-size:0.85rem;font-weight:300;line-height:1.75;color:#9c9c9c;max-width:300px;">
+          Authorised Takeuchi dealer serving Norfolk and Suffolk from Snetterton Business Park.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#9c9c9c;margin-bottom:1rem;">Navigation</p>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <a href="/machines.html" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Machines</a>
+          <a href="/#why" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Why Eastern Plant</a>
+          <a href="/#territory" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Territory</a>
+          <a href="/contact.html" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#9c9c9c;margin-bottom:1rem;">Contact</p>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);">Snetterton Business Park</p>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);">Norfolk, NR16 2JU</p>
+          <a href="/contact.html" style="font-size:0.85rem;color:#e9292d;margin-top:0.5rem;" onmouseover="this.style.color='#ff5a5d'" onmouseout="this.style.color='#e9292d'">Send an Enquiry →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-6">
+      <p style="font-size:0.72rem;color:#9c9c9c;">© 2025 Eastern Plant Sales &amp; Services Ltd. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:0.65rem;color:rgba(255,255,255,0.3);letter-spacing:0.08em;">Authorised Takeuchi Dealer</span>
+        <span style="width:1px;height:12px;background:rgba(255,255,255,0.12);display:inline-block;"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1556.38 169.9" style="height:0.75rem;width:auto;opacity:0.35;">
+          <path d="M164.49,152.73c-5.12-10.29-6.64-19.82-6.41-30.61.15-6.99-.9-15.02.8-21.74,4.16-16.47,15.19-29.94,29.11-39.19l132.71.04c5.84,2.59,8.8,8.7,12.43,14.5.39-6.07,4.18-33.81-7.19-33.81l-99.77.02-12.44-.06-55.97-.35.08-41.24,184.94.08c13.49,0,23.78,9.06,30.56,19.56,5.34,8.26,6.43,17.63,6.42,27.62l-.07,110.08c0,4.38.39,7.97-.85,12.09l-40.67.2c-.85,0-3.52.03-3.71-.66l-1.47-5.21c-5.45,4.38-11.78,5.76-19.48,5.74l-126.74-.32c-9.87-.03-18.27-8.73-22.25-16.73ZM317.75,127.29l.14-19.08c-2.71-.75-5.79-1.57-8.36-1.57h-100.16c-1.42.01-4.71,1.25-6.17,1.95l.61,18.77,113.94-.07Z" fill="white"/>
+          <path d="M841.13,127.55l.32,42.26-7.99-.45-158.71-.03c-11.23,0-21.72-1.34-31.07-6.47-13.73-7.52-22.47-20.34-22.6-35.77l-.12-14.77.17-72.15c.06-23.22,25-39.07,44.91-39.09l131.72-.13c18.15-.02,39.37,2.75,42.11,24.25,2.29,17.95,2.19,36.23-.09,54.26-2.69,21.27-21.76,26.81-40.81,26.85l-127.23.25c-2.74,6.27-1.69,15.57,4.59,20.89l164.8.08ZM789.7,45.39c-.91-1.85-5.92-3.36-7.86-3.36l-106.73.04c-4.89,5.88-5.59,11.96-3.65,19.12l120.08-.03c.87-5.35.52-10.96-1.84-15.77Z" fill="white"/>
+          <path d="M1269.39,127.51l.35,42.27-139.06-.02c-23.9,0-49.01-16.06-49.1-43.91l-.27-82.04c-.09-27.61,26.61-43.52,51.87-42.79l136.63-.19-.19,41.09-126.59.06c-6.52,0-10.41,3.94-10.42,10.37l-.11,63.74c0,2.59.96,6.87,2.52,8.15s5.49,3.07,8.04,3.08l126.35.18Z" fill="white"/>
+          <path d="M1013.7.99l44.14-.26-.02,128.78c0,18.43-21.85,40.18-41.84,40.15l-118.23-.18c-24.75-.04-41.25-21.43-41.22-44.81l.15-124.42,41.75.17.38,115.36c.03,7.69,5.68,11.78,12.4,11.77l90.01-.16c2.68,0,8.55-2.12,10.05-4.13,1.91-5.05,2.52-12.45,2.51-18.24l-.09-104.01Z" fill="white"/>
+          <polygon points="563.21 169.69 480.93 106.75 480.93 61.05 563.31 .36 576.43 .12 637.52 .24 540.58 85.92 636.94 169.46 563.21 169.69" fill="white"/>
+          <polygon points="1411.32 106.56 1325.03 106.69 1324.86 169.33 1277.71 169.26 1277.71 .83 1324.93 .74 1325.08 61.17 1411.45 61.17 1411.32 106.56" fill="white"/>
+          <path d="M128.8,169.46l-47.63.21-.05-127.54-81.12-.29L.06.96l129.31.03c.73,12.48,1.02,23.71-.17,35.83l-.4,132.64Z" fill="white"/>
+          <polygon points="453.33 169.6 403.9 169.86 403.95 .39 452.97 .3 453.33 169.6" fill="white"/>
+          <polygon points="1488.16 .35 1488.09 169.79 1440.54 169.71 1440.57 .81 1455.88 0 1488.16 .35" fill="white"/>
+          <polygon points="1556.38 169.57 1509.05 169.88 1509.1 .27 1556.32 .28 1556.38 169.57" fill="white"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ── PASSWORD GATE ──
+  (function() {
+    const gate = document.getElementById('ep-gate');
+    const input = document.getElementById('gate-input');
+    const errorMsg = document.getElementById('gate-error');
+    const PASSWORD = 'EPTEST26';
+
+    if (sessionStorage.getItem('ep-access') === '1') {
+      gate.remove();
+      return;
+    }
+
+    // Prevent page scroll while gate is open
+    document.body.style.overflow = 'hidden';
+    input.focus();
+
+    function unlock() {
+      sessionStorage.setItem('ep-access', '1');
+      gate.classList.add('unlocking');
+      document.body.style.overflow = '';
+      setTimeout(() => gate.remove(), 650);
+    }
+
+    function shake() {
+      input.classList.remove('gate-error');
+      errorMsg.classList.remove('visible');
+      void input.offsetWidth; // reflow to restart animation
+      input.classList.add('gate-error');
+      errorMsg.classList.add('visible');
+      input.select();
+      setTimeout(() => input.classList.remove('gate-error'), 400);
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        if (input.value.trim().toUpperCase() === PASSWORD) {
+          unlock();
+        } else {
+          shake();
+        }
+      } else {
+        errorMsg.classList.remove('visible');
+      }
+    });
+  })();
+
+  // ── LOADER ──
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('ep-loader');
+      loader.classList.add('hide');
+      setTimeout(() => loader.remove(), 750);
+    }, 1800);
+    // Grid lines
+    document.querySelectorAll('.grid-line').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 100);
+    });
+  });
+
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── MOBILE MENU ──
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+
+  // ── SCROLL REVEAL ──
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── STAT COUNTERS ──
+  function animateCount(el) {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num[data-count]').forEach(el => countObs.observe(el));
+
+  // ── BUTTON TEXT ROLL ──
+  document.querySelectorAll('.btn-primary, .btn-outline, .btn-outline-dark, .nav-link, [data-roll]').forEach(btn => {
+    const text = btn.textContent.trim();
+    if (!text) return;
+    btn.innerHTML = `<span class="btn-roll"><span class="btn-roll-top">${text}</span><span class="btn-roll-bottom">${text}</span></span>`;
+  });
+</script>
+
+</body>
+</html>

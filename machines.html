@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Machines — Eastern Plant Sales &amp; Services</title>
+  <meta name="description" content="Browse Eastern Plant's range of Takeuchi compact and micro excavators available across Norfolk and Suffolk." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #0d0e18; color: #fff; overflow-x: hidden; }
+
+    .logo-light .cls-2 { fill: #ffffff !important; }
+    .logo-light .cls-3 { fill: rgba(255,255,255,0.55) !important; }
+    .logo-light .cls-1 { fill: #e9292d !important; }
+
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,14,24,0.96); backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+      padding: 1rem 0;
+    }
+    .nav-link {
+      position: relative; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: #e9292d;
+      transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #fff; }
+    .nav-link.active::after { width: 100%; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #e9292d; color: #fff;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.85rem 2rem; border: 1.5px solid #e9292d;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+    .btn-primary:hover { background: #c0181c; border-color: #c0181c; }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .section-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #e9292d;
+      display: flex !important; align-items: center; gap: 0.75rem;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 1.5rem; height: 1px;
+      background: currentColor; flex-shrink: 0;
+    }
+
+    .machine-card {
+      background: #111320; border: 1px solid rgba(255,255,255,0.07);
+      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .machine-card:hover { border-color: #e9292d; transform: translateY(-3px); }
+    .machine-card-img { aspect-ratio: 4/3; overflow: hidden; background: #1a1b2e; position: relative; }
+    .machine-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+    .machine-card:hover .machine-card-img img { transform: scale(1.04); }
+    .machine-card-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,14,24,0.6) 0%, transparent 50%);
+    }
+
+    footer { background: #070810; border-top: 1px solid rgba(255,255,255,0.06); }
+    .logo-light .fc1 { fill: #e9292d; }
+    .logo-light .fc2 { fill: #ffffff; }
+    .logo-light .fc3 { fill: rgba(255,255,255,0.55); }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="/" aria-label="Eastern Plant Sales &amp; Services — home">
+      <svg style="height:2.2rem;width:auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1619.46 270" aria-label="Eastern Plant Sales &amp; Services">
+  <path fill="#e9292d" d="M405.15,263.39c-.1-1.38-.22-28.08-.13-30.58V53.81c0-13.03-8.57-24.58-21.05-28.21C325.37,8.6,264.57,0,202.64,0c-8.95,0-18.07.19-27.02.58l-12.74.51C114.68,3.98,67.25,12.19,21.27,25.54,8.79,29.17.28,40.72.28,53.72v178.99c.06,2.54-.06,29.23-.16,30.61-.8,12.55,2.37,27.79,9.43,45.24,16.01,39.53,48.74,57.89,97.3,103.07,33.79,30.74,58.4,46.27,76.34,61.84,11.23,9.79,27.76,9.79,39.02,0,17.91-15.53,42.49-31.03,76.21-61.71,25.41-23.68,46.5-39.98,63.12-55.8l-3.24-3.21-11.74-11.62-.03-.03-5.68-5.29L37.73,54.16c2.28-1.67,4.85-2.95,7.64-3.75,39.82-11.55,80.9-18.68,122.64-21.18l11.04-.45c7.76-.32,15.63-.48,23.39-.48,53.62,0,106.31,7.44,157.04,22.17,10.81,3.15,18.23,13.16,18.23,24.42v154.99c-.06,2.18.03,25.32.13,26.5.32,5.07-.1,10.69-1.25,16.72l22.88,25.38c4.43-13.25,6.32-25.03,5.68-35.11M92.18,139.68v135.54l67.19-73.52,43.06,39.34-62.16,67.71,36.14,28.55c15.05,12.71,37.03,12.71,52.11.06l42.55-35.78,53.75,48.65c-11.43,9.85-24.55,20.79-39.44,34.66-29.2,26.57-50.51,39.98-66.01,53.43-9.75,8.47-24.03,8.47-33.79,0-15.53-13.48-36.84-26.92-66.1-53.52-42.04-39.15-70.4-55.03-84.27-89.27-6.13-15.15-8.86-28.33-8.15-39.21.07-1.19.19-24.29.13-26.5V80.9l64.98,58.79Z"/>
+  <path fill="#e9292d" d="M303.2,123.09v82.41l-121.59-112.28h91.74c16.49,0,29.84,13.38,29.84,29.87"/>
+  <path fill="#ffffff" d="M589.43,261.41h-92.02V122.51h92.02v23.97h-62.95v33.5h59.39v22.33h-59.39v35.04h62.95v24.06Z"/>
+  <path fill="#ffffff" d="M600.11,231.76c0-18.77,14.44-29.65,40.14-31.18l25.99-1.54v-6.83c0-9.62-6.74-15.21-17.33-15.21s-17.13,5.2-18.48,12.8h-25.7c1.06-20.02,18.1-33.79,45.43-33.79s43.7,13.67,43.7,34.46v70.94h-27.14v-15.79h-.58c-5.78,10.97-18.58,17.42-31.47,17.42-19.64,0-34.56-12.71-34.56-31.28ZM666.24,223.58v-7.51l-21.75,1.35c-10.49.77-16.46,5.49-16.46,12.8,0,7.7,6.35,12.51,15.88,12.51,12.22,0,22.33-7.99,22.33-19.15Z"/>
+  <path fill="#ffffff" d="M749.78,156.01c25.89,0,42.74,13.09,43.12,33.11h-25.89c-.58-8.28-7.22-13.38-17.61-13.38-9.72,0-16.07,4.43-16.07,11.07,0,5.1,4.43,8.57,13.48,10.68l19.73,4.24c20.69,4.62,29.07,12.8,29.07,28.2,0,20.31-18.67,33.69-45.91,33.69s-44.47-13.28-46.01-33.4h27.43c1.35,8.66,8.18,13.67,19.35,13.67s17.13-4.24,17.13-10.97c0-5.2-3.47-8.09-12.71-10.3l-19.06-4.24c-19.54-4.43-29.55-14.63-29.55-29.84,0-19.64,17.04-32.53,43.51-32.53Z"/>
+  <path fill="#ffffff" d="M841.21,134.45v23.77h19.06v21.18h-19.06v49.38c0,7.89,3.85,11.65,12.13,11.65,2.5,0,5.1-.19,6.83-.48v20.69c-2.89.67-7.7,1.16-13.38,1.16-24.26,0-33.69-8.09-33.69-28.2v-54.19h-14.53v-21.18h14.53v-23.77h28.11Z"/>
+  <path fill="#ffffff" d="M965.85,229.83c-3.08,20.21-21.56,33.79-47.07,33.79-31.76,0-50.82-20.31-50.82-53.32s19.25-54.29,49.76-54.29,48.99,20.31,48.99,51.69v8.57h-71.13v1.73c0,14.73,9.34,24.83,23.68,24.83,10.3,0,18.19-5.1,20.79-12.99h25.8ZM895.88,199.03h43.8c-.58-13.19-9.14-22.23-21.66-22.23s-21.18,9.34-22.14,22.23Z"/>
+  <path fill="#ffffff" d="M977.2,158.22h27.14v18.58h.58c3.66-13.09,12.42-20.21,24.54-20.21,3.27,0,6.06.48,7.99,1.06v24.74c-2.31-.96-6.16-1.64-10.2-1.64-13.86,0-21.95,8.47-21.95,23v57.66h-28.11v-103.19Z"/>
+  <path fill="#ffffff" d="M1044.96,158.22h27.14v18.39h.58c5.49-12.8,16.36-20.31,32.25-20.31,22.91,0,35.81,14.44,35.81,38.6v66.51h-28.11v-60.64c0-13.47-6.35-21.18-18.96-21.18s-20.6,9.24-20.6,22.62v59.2h-28.11v-103.19Z"/>
+  <path fill="#ffffff" d="M1248.53,122.51c28.49,0,48.13,18.96,48.13,47.55s-20.31,47.55-49.57,47.55h-25.99v43.8h-29.07V122.51h56.5ZM1221.09,194.89h19.64c16.65,0,26.37-8.86,26.37-24.74s-9.63-24.64-26.28-24.64h-19.73v49.38Z"/>
+  <path fill="#ffffff" d="M1308.1,122.51h28.11v138.9h-28.11V122.51Z"/>
+  <path fill="#ffffff" d="M1347.27,231.76c0-18.77,14.44-29.65,40.14-31.18l25.99-1.54v-6.83c0-9.62-6.74-15.21-17.33-15.21s-17.13,5.2-18.48,12.8h-25.7c1.06-20.02,18.1-33.79,45.43-33.79s43.7,13.67,43.7,34.46v70.94h-27.14v-15.79h-.58c-5.78,10.97-18.58,17.42-31.47,17.42-19.64,0-34.56-12.71-34.56-31.28ZM1413.4,223.58v-7.51l-21.75,1.35c-10.49.77-16.46,5.49-16.46,12.8,0,7.7,6.35,12.51,15.88,12.51,12.22,0,22.33-7.99,22.33-19.15Z"/>
+  <path fill="#ffffff" d="M1455.16,158.22h27.14v18.39h.58c5.49-12.8,16.36-20.31,32.25-20.31,22.91,0,35.81,14.44,35.81,38.6v66.51h-28.11v-60.64c0-13.47-6.35-21.18-18.96-21.18s-20.6,9.24-20.6,22.62v59.2h-28.11v-103.19Z"/>
+  <path fill="#ffffff" d="M1600.4,134.45v23.77h19.06v21.18h-19.06v49.38c0,7.89,3.85,11.65,12.13,11.65,2.5,0,5.1-.19,6.83-.48v20.69c-2.89.67-7.7,1.16-13.38,1.16-24.26,0-33.69-8.09-33.69-28.2v-54.19h-14.53v-21.18h14.53v-23.77h28.11Z"/>
+</svg>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/machines.html" class="nav-link active">Machines</a>
+      <a href="/#why" class="nav-link">Why Us</a>
+      <a href="/#territory" class="nav-link">Territory</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      <a href="/contact.html" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.7rem;">Enquire Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page header -->
+<section style="padding:10rem 0 5rem;background:#0d0e18;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 20%,rgba(233,41,45,0.07) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <!-- Subtle brand mark -->
+  <svg style="position:absolute;right:-4%;top:50%;transform:translateY(-50%);height:70vh;opacity:0.04;pointer-events:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.27 480.81" aria-hidden="true">
+    <path d="M405.15,263.39c-.1-1.38-.22-28.08-.13-30.58V53.81c0-13.03-8.57-24.58-21.05-28.21C325.37,8.6,264.57,0,202.64,0c-8.95,0-18.07.19-27.02.58l-12.74.51C114.68,3.98,67.25,12.19,21.27,25.54,8.79,29.17.28,40.72.28,53.72v178.99c.06,2.54-.06,29.23-.16,30.61-.8,12.55,2.37,27.79,9.43,45.24,16.01,39.53,48.74,57.89,97.3,103.07,33.79,30.74,58.4,46.27,76.34,61.84,11.23,9.79,27.76,9.79,39.02,0,17.91-15.53,42.49-31.03,76.21-61.71,25.41-23.68,46.5-39.98,63.12-55.8l-3.24-3.21-11.74-11.62-.03-.03-5.68-5.29L37.73,54.16c2.28-1.67,4.85-2.95,7.64-3.75,39.82-11.55,80.9-18.68,122.64-21.18l11.04-.45c7.76-.32,15.63-.48,23.39-.48,53.62,0,106.31,7.44,157.04,22.17,10.81,3.15,18.23,13.16,18.23,24.42v154.99c-.06,2.18.03,25.32.13,26.5.32,5.07-.1,10.69-1.25,16.72l22.88,25.38c4.43-13.25,6.32-25.03,5.68-35.11M92.18,139.68v135.54l67.19-73.52,43.06,39.34-62.16,67.71,36.14,28.55c15.05,12.71,37.03,12.71,52.11.06l42.55-35.78,53.75,48.65c-11.43,9.85-24.55,20.79-39.44,34.66-29.2,26.57-50.51,39.98-66.01,53.43-9.75,8.47-24.03,8.47-33.79,0-15.53-13.48-36.84-26.92-66.1-53.52-42.04-39.15-70.4-55.03-84.27-89.27-6.13-15.15-8.86-28.33-8.15-39.21.07-1.19.19-24.29.13-26.5V80.9l64.98,58.79Z" fill="#e9292d"/>
+    <path d="M303.2,123.09v82.41l-121.59-112.28h91.74c16.49,0,29.84,13.38,29.84,29.87" fill="#e9292d"/>
+  </svg>
+
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+    <span class="section-label">The Range</span>
+    <h1 style="font-size:clamp(3rem,7vw,7rem);font-weight:900;line-height:0.92;letter-spacing:-0.04em;margin-top:1rem;">
+      Our Machines
+    </h1>
+    <p style="font-size:1rem;font-weight:300;line-height:1.75;color:#9c9c9c;margin-top:1.5rem;max-width:500px;">
+      Takeuchi's full compact excavator range — available new and used, with finance options, delivered to your site across Norfolk and Suffolk.
+    </p>
+  </div>
+</section>
+
+<!-- Filter bar -->
+<div style="background:#111320;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 0;">
+  <div class="max-w-7xl mx-auto px-6 flex flex-wrap gap-3">
+    <button onclick="filterCards('all', this)" class="filter-btn active" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid #e9292d;background:#e9292d;color:#fff;cursor:pointer;transition:all 0.2s;">All</button>
+    <button onclick="filterCards('micro', this)" class="filter-btn" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;">Micro (0–2t)</button>
+    <button onclick="filterCards('compact', this)" class="filter-btn" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;">Compact (3–6t)</button>
+    <button onclick="filterCards('mid', this)" class="filter-btn" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;">Mid (6–9t)</button>
+  </div>
+</div>
+
+<!-- Machine grid -->
+<section style="padding:4rem 0 7rem;background:#0d0e18;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-6" id="machine-grid">
+
+      <div class="machine-card" data-category="micro">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/111320/444466?text=TB108" alt="Takeuchi TB108" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">0.8 Tonne · Micro</p>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB108</h3>
+          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">The smallest Takeuchi. Zero tail-swing design for maximum versatility in ultra-tight spaces.</p>
+          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="machine-card" data-category="micro">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/111320/444466?text=TB210" alt="Takeuchi TB210" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">1.0 Tonne · Micro</p>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB210</h3>
+          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Exceptional digging performance in a compact, manoeuvrable package ideal for restricted-access sites.</p>
+          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="machine-card" data-category="micro">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/111320/444466?text=TB216" alt="Takeuchi TB216" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">1.6 Tonne · Micro</p>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB216</h3>
+          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Robust and reliable with exceptional stability. Perfect for landscaping, drainage, and utility work.</p>
+          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="machine-card" data-category="compact">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/111320/444466?text=TB335" alt="Takeuchi TB335" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">3.5 Tonne · Compact</p>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB335</h3>
+          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">The go-to workhorse for groundworks and civil projects. Outstanding power-to-weight ratio.</p>
+          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="machine-card" data-category="compact">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/111320/444466?text=TB260" alt="Takeuchi TB260" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">6.0 Tonne · Compact</p>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB260</h3>
+          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Powerful 6-tonne compact with advanced hydraulics and operator comfort for all-day productivity.</p>
+          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="machine-card" data-category="mid">
+        <div class="machine-card-img">
+          <img src="https://placehold.co/600x450/111320/444466?text=TB290" alt="Takeuchi TB290" loading="lazy" />
+        </div>
+        <div style="padding:1.75rem;">
+          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">9.0 Tonne · Mid-Range</p>
+          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB290</h3>
+          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Serious dig power with exceptional cycle times. Built for demanding commercial and infrastructure projects.</p>
+          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA block -->
+    <div style="margin-top:5rem;padding:3rem;background:#111320;border:1px solid rgba(255,255,255,0.07);display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;">
+      <div>
+        <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;margin-bottom:0.5rem;">Can't see what you need?</p>
+        <h3 style="font-size:1.3rem;font-weight:700;line-height:1.2;">We can source any Takeuchi model.</h3>
+        <p style="font-size:0.9rem;font-weight:300;color:#9c9c9c;margin-top:0.4rem;">Talk to us about used stock, factory orders, and part-exchange.</p>
+      </div>
+      <a href="/contact.html" class="btn-primary">Talk to Us →</a>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:3rem 0 2rem;">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <p style="font-size:0.72rem;color:#9c9c9c;">© 2025 Eastern Plant Sales &amp; Services Ltd.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="/" style="font-size:0.72rem;color:#9c9c9c;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9c9c9c'">Home</a>
+      <a href="/contact.html" style="font-size:0.72rem;color:#9c9c9c;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9c9c9c'">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterCards(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.style.background = 'transparent';
+    b.style.borderColor = 'rgba(255,255,255,0.15)';
+    b.style.color = 'rgba(255,255,255,0.6)';
+  });
+  btn.style.background = '#e9292d';
+  btn.style.borderColor = '#e9292d';
+  btn.style.color = '#fff';
+
+  document.querySelectorAll('#machine-grid .machine-card').forEach(card => {
+    if (cat === 'all' || card.dataset.category === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
