@@ -67,9 +67,23 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
 
+    /* Contact bar */
+    #contact-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 101;
+      background: #e9292d;
+      height: 40px;
+      display: flex; align-items: center;
+    }
+    #contact-bar a {
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+    #contact-bar a:hover { opacity: 0.75; }
+    #contact-bar a:focus-visible { outline: 1px solid rgba(255,255,255,0.7); outline-offset: 2px; }
+
     /* Nav */
     #nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 100;
       transition: background 0.4s ease, box-shadow 0.4s ease;
       padding: 1.25rem 0;
     }
@@ -528,6 +542,31 @@
       text-align: center;
     }
     .gate-error-msg.visible { opacity: 1; }
+
+    /* ── LOADER: Takeuchi dealer line ── */
+    .ep-loader-dealer {
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      overflow: hidden;
+    }
+    .ep-loader-dealer-row {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .ep-loader-dealer em {
+      display: block; font-style: normal;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      transform: translateY(110%);
+      animation: word-rise 0.7s cubic-bezier(0.22,1,0.36,1) 1.35s forwards;
+    }
+    .ep-loader-dealer img {
+      transform: translateY(110%);
+      animation: word-rise 0.7s cubic-bezier(0.22,1,0.36,1) 1.35s forwards;
+      opacity: 0.5;
+      filter: brightness(0) invert(1);
+      height: 0.85rem; width: auto;
+    }
   </style>
 </head>
 
@@ -547,14 +586,40 @@
 
 <!-- ── PAGE LOADER ── -->
 <div id="ep-loader" aria-hidden="true">
-  <div class="ep-loader-logo">
-    <div class="ep-loader-mark">
-      <img src="Brand_Assets/Logos/eastern-plant-mark.svg" alt="" />
+  <div style="display:flex;flex-direction:column;align-items:center;gap:1.5rem;">
+    <div class="ep-loader-logo">
+      <div class="ep-loader-mark">
+        <img src="Brand_Assets/Logos/eastern-plant-mark.svg" alt="" />
+      </div>
+      <div class="ep-loader-words">
+        <span><em>Eastern</em></span>
+        <span><em>Plant</em></span>
+      </div>
     </div>
-    <div class="ep-loader-words">
-      <span><em>Eastern</em></span>
-      <span><em>Plant</em></span>
+    <div class="ep-loader-dealer">
+      <span style="overflow:hidden;display:block;">
+        <em>Authorised Dealer</em>
+      </span>
+      <span style="overflow:hidden;display:block;">
+        <img src="Brand_Assets/Logos/takeuchi-logo.svg" alt="Takeuchi" />
+      </span>
     </div>
+  </div>
+</div>
+
+<!-- ── CONTACT BAR ── -->
+<div id="contact-bar" aria-label="Contact information">
+  <div class="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+    <!-- Phone — most prominent -->
+    <a href="tel:01953304001" style="display:flex;align-items:center;gap:0.5rem;color:#ffffff;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.38 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16l.5-.08Z"/></svg>
+      <span style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;">01953 304001</span>
+    </a>
+    <!-- Email — hidden on small screens -->
+    <a href="mailto:sales@easternplant.com" class="hidden sm:flex" style="align-items:center;gap:0.4rem;color:rgba(255,255,255,0.85);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span style="font-size:0.78rem;font-weight:500;letter-spacing:0.02em;">sales@easternplant.com</span>
+    </a>
   </div>
 </div>
 
@@ -574,7 +639,6 @@
     <div class="hidden md:flex items-center gap-8">
       <a href="/machines.html" class="nav-link">Machines</a>
       <a href="/#why" class="nav-link">Why Us</a>
-      <a href="/#territory" class="nav-link">Territory</a>
       <a href="/contact.html" class="nav-link">Contact</a>
       <a href="/contact.html" class="btn-primary ml-4" style="padding:0.6rem 1.4rem;font-size:0.7rem;">Enquire Now</a>
     </div>
@@ -592,9 +656,18 @@
     <div class="px-6 py-6 flex flex-col gap-4">
       <a href="/machines.html" class="nav-link text-base">Machines</a>
       <a href="/#why" class="nav-link text-base">Why Us</a>
-      <a href="/#territory" class="nav-link text-base">Territory</a>
       <a href="/contact.html" class="nav-link text-base">Contact</a>
       <a href="/contact.html" class="btn-primary mt-2 justify-center">Enquire Now</a>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1rem;margin-top:0.5rem;display:flex;flex-direction:column;gap:0.6rem;">
+        <a href="tel:01953304001" style="display:flex;align-items:center;gap:0.6rem;font-size:1.1rem;font-weight:800;letter-spacing:-0.01em;color:#ffffff;text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e9292d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.38 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16l.5-.08Z"/></svg>
+          01953 304001
+        </a>
+        <a href="mailto:sales@easternplant.com" style="display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:rgba(255,255,255,0.55);text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          sales@easternplant.com
+        </a>
+      </div>
     </div>
   </div>
 </nav>
@@ -980,8 +1053,15 @@
           <div style="display:flex;gap:1rem;align-items:flex-start;">
             <span style="color:#e9292d;font-size:0.8rem;margin-top:0.15rem;flex-shrink:0;">▸</span>
             <div>
-              <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Coverage</p>
-              <p style="font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.65);margin-top:0.15rem;">All of Norfolk and Suffolk — dealer territory exclusively held</p>
+              <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Phone</p>
+              <a href="tel:01953304001" style="display:inline-block;font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;color:#ffffff;margin-top:0.2rem;line-height:1;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#e9292d'" onmouseout="this.style.color='#ffffff'">01953 304001</a>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start;">
+            <span style="color:#e9292d;font-size:0.8rem;margin-top:0.15rem;flex-shrink:0;">▸</span>
+            <div>
+              <p style="font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;">Email</p>
+              <a href="mailto:sales@easternplant.com" style="font-size:0.95rem;font-weight:400;color:rgba(255,255,255,0.75);margin-top:0.15rem;display:inline-block;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#e9292d'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">sales@easternplant.com</a>
             </div>
           </div>
           <div style="display:flex;gap:1rem;align-items:flex-start;">
@@ -994,14 +1074,17 @@
         </div>
       </div>
 
-      <!-- Map placeholder -->
-      <div class="reveal reveal-delay-2" style="position:relative;aspect-ratio:4/3;background:#2a2a2a;overflow:hidden;">
-        <img src="https://placehold.co/700x525/1a1a1a/666666?text=Norfolk+%26+Suffolk+Territory" alt="Eastern Plant territory map" style="width:100%;height:100%;object-fit:cover;opacity:0.6;" />
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(67,67,68,0.8) 0%,transparent 60%);"></div>
-        <div style="position:absolute;bottom:1.5rem;left:1.5rem;">
-          <p style="font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#e9292d;">Service Area</p>
-          <p style="font-size:1.1rem;font-weight:700;margin-top:0.25rem;">Norfolk &amp; Suffolk</p>
-        </div>
+      <!-- Google Maps embed -->
+      <div class="reveal reveal-delay-2" style="position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+        <iframe
+          src="https://maps.google.com/maps?q=Snetterton+Business+Park,+Norfolk,+NR16+2JU&output=embed"
+          width="100%" height="100%"
+          style="border:0;display:block;filter:grayscale(0.3) contrast(1.05);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Eastern Plant Sales location — Snetterton Business Park, NR16 2JU"
+        ></iframe>
       </div>
     </div>
   </div>
@@ -1059,7 +1142,6 @@
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
           <a href="/machines.html" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Machines</a>
           <a href="/#why" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Why Eastern Plant</a>
-          <a href="/#territory" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Territory</a>
           <a href="/contact.html" style="font-size:0.85rem;color:rgba(255,255,255,0.55);transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
         </div>
       </div>
@@ -1070,7 +1152,9 @@
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
           <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);">Snetterton Business Park</p>
           <p style="font-size:0.85rem;color:rgba(255,255,255,0.55);">Norfolk, NR16 2JU</p>
-          <a href="/contact.html" style="font-size:0.85rem;color:#e9292d;margin-top:0.5rem;" onmouseover="this.style.color='#ff5a5d'" onmouseout="this.style.color='#e9292d'">Send an Enquiry →</a>
+          <a href="tel:01953304001" style="font-size:1.25rem;font-weight:800;letter-spacing:-0.02em;color:#ffffff;margin-top:0.35rem;text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#e9292d'" onmouseout="this.style.color='#ffffff'">01953 304001</a>
+          <a href="mailto:sales@easternplant.com" style="font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">sales@easternplant.com</a>
+          <a href="/contact.html" style="font-size:0.85rem;color:#e9292d;margin-top:0.25rem;" onmouseover="this.style.color='#ff5a5d'" onmouseout="this.style.color='#e9292d'">Send an Enquiry →</a>
         </div>
       </div>
     </div>
@@ -1152,7 +1236,7 @@
       const loader = document.getElementById('ep-loader');
       loader.classList.add('hide');
       setTimeout(() => loader.remove(), 750);
-    }, 1800);
+    }, 2200);
     // Grid lines
     document.querySelectorAll('.grid-line').forEach(el => {
       setTimeout(() => el.classList.add('visible'), 100);
