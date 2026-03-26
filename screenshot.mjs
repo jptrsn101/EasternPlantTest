@@ -23,7 +23,7 @@ const nextNum = nums.length > 0 ? Math.max(...nums) + 1 : 1;
 const filename = label ? `screenshot-${nextNum}-${label}.png` : `screenshot-${nextNum}.png`;
 const outputPath = join(screenshotDir, filename);
 
-const browser = await puppeteer.launch({ headless: 'new' });
+const browser = await puppeteer.launch({ headless: 'new', executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' });
 const page = await browser.newPage();
 await page.setViewport({ width: 1440, height: 900 });
 await page.goto(url, { waitUntil: 'networkidle0' });

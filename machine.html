@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Machine — Eastern Plant Sales &amp; Services</title>
+  <meta id="page-desc" name="description" content="Takeuchi machine detail — Eastern Plant Sales" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #0d0e18; color: #fff; overflow-x: hidden; }
+
+    /* ── Logo ── */
+    .logo-light .cls-2 { fill: #ffffff !important; }
+    .logo-light .cls-3 { fill: rgba(255,255,255,0.55) !important; }
+    .logo-light .cls-1 { fill: #e9292d !important; }
+
+    /* ── Contact bar ── */
+    #contact-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 101;
+      background: #e9292d; height: 40px; display: flex; align-items: center;
+    }
+    #contact-bar a { text-decoration: none; transition: opacity 0.2s ease; }
+    #contact-bar a:hover { opacity: 0.75; }
+
+    /* ── Nav ── */
+    #nav {
+      position: fixed; top: 40px; left: 0; right: 0; z-index: 100;
+      background: rgba(13,14,24,0.96); backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+      padding: 1rem 0;
+    }
+    .nav-link {
+      position: relative; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); transition: color 0.2s ease;
+      text-decoration: none;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: #e9292d;
+      transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #fff; }
+    .nav-link.active::after { width: 100%; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #e9292d; color: #fff;
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.85rem 2rem; border: 1.5px solid #e9292d;
+      transition: background 0.25s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #c0181c; border-color: #c0181c; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: rgba(255,255,255,0.7);
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.75rem 1.5rem; border: 1px solid rgba(255,255,255,0.2);
+      transition: border-color 0.2s ease, color 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-outline:hover { border-color: #fff; color: #fff; }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #e9292d;
+      display: flex !important; align-items: center; gap: 0.75rem;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 1.5rem; height: 1px;
+      background: currentColor; flex-shrink: 0;
+    }
+
+    /* ── Category tabs ── */
+    .cat-tab {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 0.75rem 1.5rem;
+      border-bottom: 2px solid transparent; color: rgba(255,255,255,0.45);
+      cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+    .cat-tab:hover { color: rgba(255,255,255,0.75); }
+    .cat-tab.active { color: #fff; border-bottom-color: #e9292d; }
+
+    /* ── Sidebar model list ── */
+    #model-sidebar {
+      width: 200px; flex-shrink: 0;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      max-height: calc(100vh - 180px); overflow-y: auto;
+      position: sticky; top: 120px;
+    }
+    #model-sidebar::-webkit-scrollbar { width: 4px; }
+    #model-sidebar::-webkit-scrollbar-track { background: transparent; }
+    #model-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
+    .sidebar-item {
+      display: block; padding: 0.6rem 1rem 0.6rem 1.25rem;
+      font-size: 0.78rem; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      border-left: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      text-decoration: none; cursor: pointer;
+    }
+    .sidebar-item:hover { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.03); }
+    .sidebar-item.active {
+      color: #fff; border-left-color: #e9292d;
+      background: rgba(233,41,45,0.06);
+    }
+    .sidebar-weight {
+      font-size: 0.65rem; font-weight: 400; color: rgba(255,255,255,0.3);
+      display: block; margin-top: 0.1rem;
+    }
+    .sidebar-item.active .sidebar-weight { color: rgba(255,255,255,0.45); }
+
+    /* ── Machine image panel ── */
+    #machine-img-panel {
+      flex: 0 0 340px; background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2.5rem; min-height: 320px; position: relative;
+    }
+    #machine-img-panel img {
+      max-width: 100%; max-height: 280px; object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+
+    /* ── Accordion ── */
+    .accordion-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .accordion-trigger {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0; cursor: pointer;
+      font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.8);
+      background: none; border: none; text-align: left;
+      transition: color 0.2s ease;
+    }
+    .accordion-trigger:hover { color: #fff; }
+    .accordion-trigger.open { color: #fff; }
+    .accordion-icon {
+      width: 22px; height: 22px; border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: border-color 0.2s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+      font-size: 1rem; color: rgba(255,255,255,0.5);
+    }
+    .accordion-trigger.open .accordion-icon {
+      border-color: #e9292d; color: #e9292d; transform: rotate(45deg);
+    }
+    .accordion-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1);
+    }
+    .accordion-body.open { max-height: 1200px; }
+    .accordion-body-inner { padding: 0 0 1.25rem; }
+
+    /* ── Feature bullets ── */
+    .feature-list { list-style: none; padding: 0; margin: 0; }
+    .feature-list li {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      font-size: 0.83rem; font-weight: 300; line-height: 1.6;
+      color: #9c9c9c; padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li::before {
+      content: ''; display: block; width: 5px; height: 5px;
+      background: #e9292d; border-radius: 50%; flex-shrink: 0;
+      margin-top: 0.45rem;
+    }
+
+    /* ── TFM / TSS info ── */
+    .info-box {
+      background: #111320; border: 1px solid rgba(255,255,255,0.07);
+      padding: 1.25rem; border-radius: 2px;
+    }
+    .info-box ul { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+    .info-box ul li {
+      display: flex; gap: 0.6rem; align-items: flex-start;
+      font-size: 0.8rem; font-weight: 300; color: #9c9c9c;
+      padding: 0.3rem 0;
+    }
+    .info-box ul li::before {
+      content: '→'; color: #e9292d; font-size: 0.7rem;
+      flex-shrink: 0; margin-top: 0.1rem;
+    }
+
+    /* ── Spec placeholder ── */
+    .spec-placeholder {
+      text-align: center; padding: 2rem 1rem;
+      border: 1px dashed rgba(255,255,255,0.1);
+    }
+
+    /* ── Mobile nav ── */
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+
+    /* ── Mobile layout ── */
+    @media (max-width: 900px) {
+      #model-sidebar { display: none; }
+      #machine-img-panel { flex: none; width: 100%; }
+      #machine-detail-cols { flex-direction: column; }
+      #machine-detail-panel { padding-left: 0 !important; padding-top: 1.75rem; }
+    }
+    @media (max-width: 640px) {
+      #machine-img-panel { min-height: 220px; padding: 1.25rem; }
+    }
+
+    footer { background: #070810; border-top: 1px solid rgba(255,255,255,0.06); }
+  </style>
+</head>
+<body>
+
+<!-- Contact bar -->
+<div id="contact-bar" aria-label="Contact information">
+  <div class="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+    <a href="tel:01953304001" style="display:flex;align-items:center;gap:0.5rem;color:#ffffff;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.38 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16l.5-.08Z"/></svg>
+      <span style="font-size:0.82rem;font-weight:700;letter-spacing:0.04em;">01953 304001</span>
+    </a>
+    <a href="mailto:sales@easternplant.com" class="hidden sm:flex" style="align-items:center;gap:0.4rem;color:rgba(255,255,255,0.85);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span style="font-size:0.78rem;font-weight:500;letter-spacing:0.02em;">sales@easternplant.com</span>
+    </a>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;" aria-label="Eastern Plant — home">
+      <img src="Brand_Assets/Logos/eastern-plant-mark.svg" style="height:3rem;width:auto;flex-shrink:0;" alt="" aria-hidden="true" />
+      <div style="display:flex;flex-direction:column;line-height:1;gap:0.1rem;">
+        <span style="font-size:1.25rem;font-weight:600;letter-spacing:-0.04em;color:#ffffff;line-height:0.92;">Eastern</span>
+        <span style="font-size:1.25rem;font-weight:600;letter-spacing:-0.04em;color:#ffffff;line-height:0.92;">Plant</span>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/machines.html" class="nav-link active">Machines</a>
+      <a href="/#why" class="nav-link">Why Us</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+      <a href="/contact.html" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.7rem;">Enquire Now</a>
+    </div>
+    <button id="burger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu" aria-expanded="false" style="background:none;border:none;cursor:pointer;">
+      <span style="display:block;width:1.5rem;height:1.5px;background:#fff;border-radius:1px;"></span>
+      <span style="display:block;width:1.5rem;height:1.5px;background:#fff;border-radius:1px;"></span>
+      <span style="display:block;width:1.5rem;height:1.5px;background:#fff;border-radius:1px;"></span>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <div style="padding:1.5rem 1.5rem 2rem;display:flex;flex-direction:column;gap:1rem;border-top:1px solid rgba(255,255,255,0.07);">
+      <a href="/machines.html" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#fff;text-decoration:none;">Machines</a>
+      <a href="/#why" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;">Why Us</a>
+      <a href="/contact.html" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;">Contact</a>
+      <a href="/contact.html" style="display:flex;align-items:center;justify-content:center;background:#e9292d;color:#fff;font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.85rem 2rem;text-decoration:none;margin-top:0.25rem;">Enquire Now</a>
+      <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:1rem;margin-top:0.25rem;">
+        <a href="tel:01953304001" style="display:flex;align-items:center;gap:0.6rem;font-size:1rem;font-weight:700;color:#fff;text-decoration:none;margin-bottom:0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e9292d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.38 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16l.5-.08Z"/></svg>
+          01953 304001
+        </a>
+        <a href="mailto:sales@easternplant.com" style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          sales@easternplant.com
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Page top padding -->
+<div style="height:120px;"></div>
+
+<!-- Category tab bar -->
+<div style="background:#111320;border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 flex overflow-x-auto" style="gap:0;">
+    <button class="cat-tab active" onclick="switchCategory('excavators',this)" id="tab-excavators">Excavators</button>
+    <button class="cat-tab" onclick="switchCategory('dumpers',this)" id="tab-dumpers">Tracked Dumpers</button>
+    <button class="cat-tab" onclick="switchCategory('loaders',this)" id="tab-loaders">Track Loaders</button>
+  </div>
+</div>
+
+<!-- Main layout -->
+<div class="max-w-7xl mx-auto px-6" style="padding-top:2rem;padding-bottom:5rem;">
+  <div style="display:flex;gap:0;align-items:flex-start;" id="machine-detail-cols">
+
+    <!-- Sidebar -->
+    <div id="model-sidebar">
+      <div style="padding:1rem 1rem 0.5rem 1.25rem;">
+        <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Models</span>
+      </div>
+      <div id="sidebar-list"></div>
+    </div>
+
+    <!-- Image panel -->
+    <div id="machine-img-panel" style="margin-left:0;">
+      <img id="machine-img" src="" alt="" />
+    </div>
+
+    <!-- Detail panel -->
+    <div id="machine-detail-panel" style="flex:1;min-width:0;padding:0 0 0 2.5rem;">
+
+      <!-- Breadcrumb -->
+      <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem;">
+        <a href="/machines.html" style="font-size:0.72rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">All Machines</a>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.2);">/</span>
+        <span id="breadcrumb-cat" style="font-size:0.72rem;color:rgba(255,255,255,0.4);"></span>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.2);">/</span>
+        <span id="breadcrumb-model" style="font-size:0.72rem;color:rgba(255,255,255,0.7);"></span>
+      </div>
+
+      <!-- Model header -->
+      <div style="margin-bottom:1.75rem;">
+        <p id="machine-weight-label" style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.5rem;"></p>
+        <h1 id="machine-name" style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;line-height:1.05;"></h1>
+        <p id="machine-subtitle" style="font-size:0.85rem;color:rgba(255,255,255,0.45);font-weight:400;margin-top:0.25rem;letter-spacing:0.04em;text-transform:uppercase;"></p>
+      </div>
+
+      <!-- Description -->
+      <p id="machine-desc" style="font-size:0.88rem;font-weight:300;line-height:1.75;color:#9c9c9c;margin-bottom:2rem;max-width:520px;"></p>
+
+      <!-- CTA buttons -->
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;">
+        <a href="/contact.html" class="btn-primary">Enquire About This Machine →</a>
+        <a href="/contact.html" class="btn-outline">Request Spec Sheet</a>
+      </div>
+
+      <!-- Product Details accordion -->
+      <div style="border-top:1px solid rgba(255,255,255,0.07);">
+        <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);padding:1.25rem 0 0.25rem;">Product Details</p>
+
+        <!-- Features -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Machine Features</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <ul class="feature-list" id="feature-list"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specifications -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Specifications</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <div class="spec-placeholder">
+                <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:300;">Full specification sheet available on request.</p>
+                <a href="/contact.html" class="btn-primary" style="margin-top:1rem;padding:0.65rem 1.5rem;font-size:0.72rem;">Contact Us →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Operating Dimensions -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Operating Dimensions</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <div class="spec-placeholder">
+                <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:300;">Technical dimension drawings available on request.</p>
+                <a href="/contact.html" class="btn-primary" style="margin-top:1rem;padding:0.65rem 1.5rem;font-size:0.72rem;">Contact Us →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lifting Diagram -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Lifting Diagram</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <div class="spec-placeholder">
+                <p style="font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:300;">Safe load lifting capacity chart available on request.</p>
+                <a href="/contact.html" class="btn-primary" style="margin-top:1rem;padding:0.65rem 1.5rem;font-size:0.72rem;">Contact Us →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TFM -->
+        <div class="accordion-item" id="tfm-accordion">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Takeuchi Fleet Management (TFM)</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <div class="info-box">
+                <p style="font-size:0.82rem;font-weight:500;color:#fff;margin-bottom:0.5rem;">Remote telematics monitoring for your fleet</p>
+                <p style="font-size:0.8rem;font-weight:300;color:#9c9c9c;line-height:1.65;">TFM utilises machine data to better manage your fleet and keep costs down by alerting you to machine performance and health.</p>
+                <ul>
+                  <li>Machine location tracking</li>
+                  <li>Utilisation and run-time (hours)</li>
+                  <li>Performance and maintenance status</li>
+                  <li>Personalised fault alerts</li>
+                  <li>Remote diagnostics</li>
+                  <li>Scheduled maintenance reminders</li>
+                  <li>Geofencing to protect your investment</li>
+                  <li>Proactive cost management</li>
+                </ul>
+                <p id="tfm-availability" style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.75rem;font-style:italic;"></p>
+                <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.25rem;">TFM is provided free of charge during the warranty period. Continued support available via Eastern Plant.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TSS -->
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Takeuchi Security System (TSS)</span>
+            <span class="accordion-icon">+</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              <div class="info-box">
+                <p style="font-size:0.82rem;font-weight:500;color:#fff;margin-bottom:0.5rem;">Factory-fitted immobiliser — standard across the range</p>
+                <p style="font-size:0.8rem;font-weight:300;color:#9c9c9c;line-height:1.65;">TSS is a key-based immobiliser system fitted as standard across the Takeuchi range to prevent unauthorised use of the machine. TSS provides an added layer of security and peace of mind on site.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+
+    </div><!-- /detail panel -->
+  </div><!-- /cols -->
+</div><!-- /main -->
+
+<footer style="padding:3rem 0 2rem;">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <p style="font-size:0.72rem;color:#9c9c9c;">© 2025 Eastern Plant Sales &amp; Services Ltd.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="/" style="font-size:0.72rem;color:#9c9c9c;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9c9c9c'">Home</a>
+      <a href="/machines.html" style="font-size:0.72rem;color:#9c9c9c;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9c9c9c'">Machines</a>
+      <a href="/contact.html" style="font-size:0.72rem;color:#9c9c9c;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#9c9c9c'">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Machine data ──────────────────────────────────────────────────────────────
+const MACHINES = {
+  excavators: [
+    {
+      id: 'tb210r',
+      name: 'TB210R',
+      subtitle: 'Compact Excavator',
+      weight: '1.0 Tonne',
+      tfm: 'TFM available as optional on this model.',
+      img: 'Machine_Info/Excavators/TB210R/TB210R Compact Excavator | 1.1 Tonne.jpg.webp',
+      desc: 'The TB210R delivers excellent performance and an impressive feature set in a very compact design. Featuring a retractable undercarriage and foldable ROPS, it can work and travel through the most confined applications with ease.',
+      features: [
+        'Retractable undercarriage — travels through standard doorways',
+        'Foldable ROPS frame for height-restricted access',
+        'Minimal tail swing for confined site applications',
+        'Dual entry — operator can enter or exit from either side',
+        'All steel construction for long-term durability',
+        'Multiple service hoods for quick access to maintenance points',
+        'Pilot controls and pattern change valve available',
+      ]
+    },
+    {
+      id: 'tb216',
+      name: 'TB216',
+      subtitle: 'Compact Excavator',
+      weight: '1.6 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB216/tb216-canopy-400-400x400.jpg.webp',
+      desc: "The UK's favourite mini excavator. The TB216 provides an excellent blend of power and functionality, designed for maximum operator comfort, performance, and serviceability — ideal for limited space job sites.",
+      features: [
+        "UK's most popular mini excavator",
+        'Hoses routed through boom and arm for added protection and visibility',
+        'Four post ROPS canopy for operator protection',
+        'Retractable undercarriage for access to tight sites',
+        'Variable displacement axial piston pump — smooth, harmonised control',
+        'Lockable fuel cap + remote fuel fill gauge',
+        'TFM telematics standard',
+      ]
+    },
+    {
+      id: 'tb217r',
+      name: 'TB217R',
+      subtitle: 'Short-Tail Compact Excavator',
+      weight: '1.7 Tonne',
+      tfm: 'TFM available as optional on this model.',
+      img: 'Machine_Info/Excavators/TB217R/TB217R-400-400-front-cutout-takeuchi-mini-excavator-buy-plant-hire.jpg.webp',
+      desc: 'The TB217R short-tail compact mini excavator is ideal where working space is limited. Just 70mm overhang at 90° to extended track — the operator can rotate right up to walls without risk of rear impacts.',
+      features: [
+        'Reduced tail swing — just 70mm overhang at 90° to extended track',
+        '730mm slew radius — perfect for streetworks and utilities',
+        'Expandable track frame 980–1300mm for stability and access',
+        'Stage V emissions compliant — no exhaust aftertreatment required',
+        'Simultaneous swing and digging with two-speed travel',
+        'Longer dipper arm for added stability and working range',
+        'Popular choice for utilities and hire sectors',
+      ]
+    },
+    {
+      id: 'tb220e',
+      name: 'TB20e Electric',
+      subtitle: 'Electric Compact Excavator',
+      weight: '1.9 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB220e/08.png.webp',
+      desc: "Takeuchi's first electro-hydraulic compact excavator. Zero emissions and low noise — performance on par with the diesel TB216, with no reduction in power, slew speeds, or breakout force.",
+      features: [
+        'Zero emissions — fully electric Lithium-Ion battery powered',
+        'Performance on par with diesel-powered TB216',
+        'Up to 8 hours operating time at 65% load',
+        '24.7 kWh lithium-ion battery',
+        'Onboard charger accepts 95V–265V single phase power',
+        'Optional offboard 3-phase fast charger',
+        'Extendable track frame 980–1300mm',
+        'Significantly reduced maintenance — no fuel filters, engine oil, or coolant',
+        'Available in cab and canopy configurations',
+      ]
+    },
+    {
+      id: 'tb320',
+      name: 'TB320',
+      subtitle: 'Compact Excavator',
+      weight: '2.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB320/TB320_Takeuchi_excavator_2-Tonne-digger_400x400_6.jpg.webp',
+      desc: 'Available in canopy and cab configurations, the TB320 features proportional controls and up to four service ports, making it an extremely versatile machine for a wide range of hydraulic attachments.',
+      features: [
+        'Proportional controls on 1st and 2nd auxiliary ports',
+        '40 l/min hydraulic flow on service port 1',
+        'Up to 4 service ports — canopy and cab configurations',
+        'Compatible with mulchers, flails, augers, post knockers, tilt-rotators',
+        'Compact design — easy to transport between sites',
+        'TFM telematics standard',
+      ]
+    },
+    {
+      id: 'tb225',
+      name: 'TB225',
+      subtitle: 'Compact Excavator',
+      weight: '2.5 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB225/TB225-400-400-FRONT-CUTOUT-Takeuchi-excavators.jpg.webp',
+      desc: 'Designed for confined, demanding applications, the TB225 combines features from smaller excavators — such as a hydraulically retractable undercarriage — with features from larger machines, including electronic throttle and proportional aux control.',
+      features: [
+        'Hydraulically retractable undercarriage',
+        'Electronic throttle control',
+        'Electronic proportional auxiliary control',
+        'Curved blade with pin-on extensions for increased work surface',
+        'Triple flange rollers for improved track life and stability',
+        'Standard long arm with integrated thumb mount',
+        'Open canopy for 360-degree visibility',
+        'No DOC/DPF exhaust aftertreatment required',
+      ]
+    },
+    {
+      id: 'tb325r',
+      name: 'TB325R',
+      subtitle: 'Short-Tail Compact Excavator',
+      weight: '2.5 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB325R/TB325R-Canopy2-cutout.jpg.webp',
+      desc: 'From the NEW 3-Series — a short-tail, trailer-towable 2.5 tonne compact excavator under 2.5t for safe legal towing. Just 825mm tail swing radius for urban environments and confined sites.',
+      features: [
+        'Under 2.5t — safe and legal for trailer towing',
+        'Short tail swing — 825mm radius',
+        '16.5kW engine with 19.3kN breakout force',
+        'Dig depth 2,540mm | Ground reach 4,350mm',
+        'Heavy-duty wraparound counterweight',
+        'Automatic engine deceleration for fuel saving',
+        '3-year / 3,000-hour Warranty standard',
+        'LED work light package available',
+      ]
+    },
+    {
+      id: 'tb230',
+      name: 'TB230',
+      subtitle: 'Compact Excavator',
+      weight: '3.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB230/TB230-400-400-FRONT-CUTOUT-Takeuchi-excavators.jpg.webp',
+      desc: 'The TB230 combines a narrow width for limited-access sites with a conventional tail swing for excellent stability. The rounded body improves visibility and the service access hood gives outstanding ground-level serviceability.',
+      features: [
+        'Narrow width for limited-access job sites',
+        'Conventional tail swing for excellent stability and larger operator space',
+        'Rounded body design for improved visibility',
+        'Wrap-around counterweight protects engine and hydraulic components',
+        'Service access hood — no need for tilt-up cabin',
+        'Spacious operator platform for all-day comfort',
+      ]
+    },
+    {
+      id: 'tb235-2',
+      name: 'TB235-2',
+      subtitle: 'Compact Excavator',
+      weight: '3.5 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB235-2/TB235-2-400-400-FRONT-CUTOUT-Takeuchi-excavators.jpg.webp',
+      desc: 'Ease of transport and an excellent working range make the TB235-2 a great choice for utility work, landscaping, and construction. Powerful breakout forces with an outstanding blend of performance, speed, and versatility.',
+      features: [
+        'Excellent working range — great for utility and landscaping work',
+        'Powerful arm crowd and bucket breakout forces',
+        'Triple flange track rollers for increased rail contact and retention',
+        'Deluxe high-back suspension seat with weight adjustments',
+        'Retractable seat belt standard',
+        'Improved fuel filtration system',
+      ]
+    },
+    {
+      id: 'tb335r',
+      name: 'TB335R',
+      subtitle: 'Short-Tail Compact Excavator',
+      weight: '3.5 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB335R/400x400-Takeuchi-TB335r-3.5-tonne-excavator-300x300-1-400x400.jpg.webp',
+      desc: "Takeuchi's latest 3-Series excavator with minimal tail swing, allowing operators to work right up to walls without risk of rear impacts. The fully redesigned interior sets a new standard for compact excavator comfort.",
+      features: [
+        'Minimal tail swing — compact radius for urban and confined sites',
+        'Fully redesigned interior with one-touch controls',
+        'Jog dial + high-definition colour monitor',
+        'Kubota engine — no DPF required',
+        'All steel construction with heavy-duty blade design',
+        'Triple flange rollers for long-term reliability',
+        'Lockable swing-out engine cover for easy maintenance',
+        'Primary auxiliary circuit plumbed to mid-arm',
+      ]
+    },
+    {
+      id: 'tb240',
+      name: 'TB240',
+      subtitle: 'Compact Excavator (DPF)',
+      weight: '4.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB240/TB240-Machine-Cutout.jpg',
+      desc: 'The TB240 provides exceptional power and performance for a 4-tonne excavator with a wide working range and a spacious, well-appointed cabin. DPF fitted to comply with latest emissions standards.',
+      features: [
+        'DPF fitted — compliant with latest Stage V emissions standards',
+        'Wide working range and comprehensive feature set',
+        'Spacious, well-appointed cabin for operator comfort',
+        'Newly updated rounded body design for improved visibility',
+        'Electronic throttle control',
+        'Conventional tail swing with reduced overhang for stability',
+        'Popular choice for housebuilders and landscapers',
+      ]
+    },
+    {
+      id: 'tb350r',
+      name: 'TB350R',
+      subtitle: 'Compact Excavator',
+      weight: '5.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB350R/TB350R_1.jpg',
+      desc: 'The 5-tonne short-tail TB350R is at home in a wide range of applications, delivering the power and performance expected from Takeuchi. High flow auxiliary up to 24.6 gpm for demanding attachment work.',
+      features: [
+        'Short tail swing 5-tonne — ideal for urban environments',
+        'High flow primary auxiliary up to 24.6 gpm',
+        'Standard long arm for greater dig depth and reach',
+        'Kubota engine — no DPF required',
+        'HD multifunction colour monitors + jog dial',
+        'One-touch switches for easy operation',
+        'Triple flange rollers for long-term durability',
+        'TFM telematics standard',
+      ]
+    },
+    {
+      id: 'tb250-2',
+      name: 'TB250-2',
+      subtitle: 'Compact Excavator',
+      weight: '5.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB250-2/TB250-2.jpg.webp',
+      desc: 'The TB250-2 fills the space between the TB240 and TB260 in the 5-tonne class. Conventional tail swing for greater stability and a larger operator station, with primary aux capable of 24.2 gpm.',
+      features: [
+        'Conventional tail swing — greater stability and larger operator station',
+        '39hp emissions-compliant engine',
+        'Primary auxiliary circuit up to 24.2 gpm',
+        'Standard auxiliary circuits plumbed to mid-arm',
+        'Cushioned boom and arm cylinders for durability',
+        'LCD multifunction display for easy reading in all conditions',
+        'Convenient rear engine access for daily maintenance',
+      ]
+    },
+    {
+      id: 'tb257fr',
+      name: 'TB257FR',
+      subtitle: 'Offset Boom Excavator',
+      weight: '5.8 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB257FR/TB257FR_400.jpg.webp',
+      desc: "Takeuchi's patented side-to-side (STS) offset boom combined with tight tail swing enables near-full rotation within the width of its tracks. Dig offset left or right without repositioning — ideal for road, bridge, and urban construction.",
+      features: [
+        'Patented side-to-side (STS) offset boom',
+        'Near-full rotation within track width — minimal repositioning',
+        'Dig offset to left or right side without moving machine',
+        'Three auxiliary circuits plumbed to mid-arm',
+        'Third circuit designed for hydraulic pin grabber coupler',
+        'Kubota turbocharged diesel — 52.3hp',
+        'ROPS/TOPS/OPG Level 1 certified canopy or full cab',
+        'Rubber and steel track options available',
+      ]
+    },
+    {
+      id: 'tb260',
+      name: 'TB260',
+      subtitle: 'Compact Excavator (DPF)',
+      weight: '6.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB260/TB260-400-400-Takeuchi-Excavator-Digging-plant-machinery-buy.jpg.webp',
+      desc: 'The TB260 delivers exceptional power and performance with a wide working range. The larger-than-average cabin ensures maximum operator comfort for all-day excavating. DPF fitted for latest emissions compliance.',
+      features: [
+        'DPF fitted — compliant with latest Stage V emissions standards',
+        'Larger-than-average spacious cabin',
+        'Electronic throttle control',
+        'Dual proportional slide switches for auxiliary hydraulic functions',
+        'Multifunction monitor and switch panel',
+        'Outstanding multi-function and tool carrier capabilities',
+      ]
+    },
+    {
+      id: 'tb370',
+      name: 'TB370',
+      subtitle: 'Compact Excavator',
+      weight: '7.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB370/TB370-450x450-Takeuchi-Excavator-heavy-plant-machinery-450x400.jpg.webp',
+      desc: "From the New 3-Series — Takeuchi's new generation line-up, upgraded with state-of-the-art technology and a completely redesigned automotive-styled interior. Best-in-class working range with very low external noise levels.",
+      features: [
+        '8" touchscreen display with jog dial for intuitive operation',
+        '1st, 2nd, and 3rd auxiliary circuits plumbed to mid-arm',
+        'Very low external noise — ideal for urban environments',
+        'Best-in-class working range for extra productivity',
+        'Auxiliary hydraulic lines with steel spiral wrap protection',
+        'Forward-tilting cabin for access to control valve and engine',
+        'Optional 270° view monitor',
+        'TFM telematics standard',
+      ]
+    },
+    {
+      id: 'tb370w',
+      name: 'TB370W',
+      subtitle: 'Wheeled Excavator',
+      weight: '7.5 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB370W/TB370W-Excavator-7-tonne-takeuchi-digger-400x400-5.jpg',
+      desc: 'A powerful 7.5-tonne wheeled excavator and versatile tool carrier. EU Stage V compliant, with load-sensing hydraulics, up to 4 auxiliary ports, and hi-flow proportional control for maximum productivity on busy sites.',
+      features: [
+        'EU Stage V compliant 54.6kW (73.2hp) engine',
+        'Offset 2-piece boom — increased working range',
+        'Load-sensing hydraulics with up to 4 auxiliary ports',
+        'Hi-flow SP1 up to 120 L/min | SP2 up to 55 L/min',
+        'Three work modes: Standard, Eco, Eco Plus',
+        '8" multifunction touchscreen with HVAC + DAB Bluetooth radio',
+        'Optional multifunction grip for frequently-used functions',
+        'TFM telematics standard',
+      ]
+    },
+    {
+      id: 'tb280fr',
+      name: 'TB280FR',
+      subtitle: 'Offset Boom Excavator',
+      weight: '8.5 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB280FR/TB280FR-400-400-Takeuchi-Excavator.jpg.webp',
+      desc: "The TB280FR's patented side-to-side (STS) offset boom with tight tail swing provides unmatched visibility and the ability to operate in the most confined areas with near-full rotation within the track footprint.",
+      features: [
+        'Patented side-to-side (STS) offset boom',
+        'Near-full rotation within track width',
+        'Unmatched visibility to work equipment',
+        'Heavy-duty boom with four large kingpins for shock distribution',
+        'Pilot operated joystick controls — precise, low-effort movements',
+        'Side-by-side radiator and hydraulic oil cooler — easy to maintain',
+      ]
+    },
+    {
+      id: 'tb290-2',
+      name: 'TB290-2',
+      subtitle: 'Compact Excavator',
+      weight: '9.0 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB290-2/TB290-2-400-400-Takeuchi-plant-excavator-operator-cabin-digger.jpg.webp',
+      desc: 'A world-beating 9-tonne excavator with a wide array of features that maximise efficiency and productivity. Available with mono or 2-piece boom, 59.1kN breakout force, and closed-centre load sensing hydraulics.',
+      features: [
+        'World-beating performance for major groundworks and earthmoving',
+        'Mono or 2-piece boom option for versatility',
+        '59.1kN breakout force',
+        'Closed-centre load sensing hydraulics for multi-function capabilities',
+        'Multiple attachment presets adjustable from the cab',
+        'Turbocharged engine for increased power and torque',
+        'Engine hood and side cover open high overhead for serviceability',
+      ]
+    },
+    {
+      id: 'tb395w',
+      name: 'TB395W',
+      subtitle: 'Wheeled Excavator',
+      weight: '10.6 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB395W/tb395w-wheeled-excavator-.jpg',
+      desc: 'The TB395W weighs 10,627 kg and combines powerful excavating with superior on-road performance at speeds up to 18 mph. Standard two-piece swing boom, hydraulic outriggers and dozer blade, 270-degree camera system.',
+      features: [
+        '114hp engine — on-road speeds up to 18 mph',
+        'Standard two-piece heavy-duty swing boom',
+        'Dig offset left or right without repositioning',
+        'Hydraulic outriggers + dozer blade for site stability',
+        'Three auxiliary circuits: primary 32 gpm, secondary 14.5 gpm, plus coupler circuit',
+        '2-wheel steer and 4-wheel/crab steer options',
+        '270-degree camera system for maximum site safety',
+        '8" colour touchscreen with jog dial',
+      ]
+    },
+    {
+      id: 'tb2150',
+      name: 'TB2150',
+      subtitle: 'Large Excavator',
+      weight: '15.8 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB2150/TB2150-400-400-Takeuchi-Excavator.jpg.webp',
+      desc: "The largest and most powerful excavator in the Takeuchi line. Standard pivot boom and dozer blade for maximum versatility, wrapped in an automotive-styled interior with automatic climate control.",
+      features: [
+        'Largest, most powerful Takeuchi excavator',
+        'Standard pivot boom — dig offset left or right',
+        'Standard dozer blade',
+        'Wrap-around counterweight for excellent stability',
+        'Automotive-styled interior with 7" colour multifunction display',
+        'Rear view camera standard',
+        'Automatic climate control',
+        'High flow primary auxiliary circuit — outstanding attachment platform',
+        'Multiple steel service hoods for easy daily maintenance',
+      ]
+    },
+    {
+      id: 'tb2150r',
+      name: 'TB2150R',
+      subtitle: 'Large Excavator',
+      weight: '15.8 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/Excavators/TB2150R/TB2150R-450-450-Front-Cutout-Takeuchi-Excavator-450x400.jpg.webp',
+      desc: 'The TB2150R features a fixed boom for greater stability and heavier load carrying. Long arm delivers exceptional digging depth (max 19\'9.4"). Well suited for road, bridge, and confined-space work.',
+      features: [
+        'Fixed boom for greater stability and heavier load carrying',
+        'Long arm — max dig depth 19\'9.4" | max reach 28\'10.1"',
+        '270-degree camera system standard',
+        'Bluetooth radio + hydraulic joystick controls',
+        'High back air suspension seat with heat',
+        'Three auxiliary hydraulic circuits — high flow up to 59 gpm',
+        'Large wraparound counterweight',
+        'Deluxe LED work light package',
+        'All panels open high overhead for ground-level serviceability',
+      ]
+    },
+  ],
+
+  dumpers: [
+    {
+      id: 'tcr50-3',
+      name: 'TCR50-3',
+      subtitle: 'Compact Tracked Dumper',
+      weight: '6.5 Tonne',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/TrackedDumpers/TCR50-3 Compact Tracked Dumper/TCR50-3-tracked-dumper-takeuchi-crawler.jpg.webp',
+      desc: 'The new TCR50-3 offers greater functionality, performance, comfort, and serviceability. 6,650 kg | 88.4 kW Stage V engine | 3,700 kg max loading weight | 180° skip-tip functionality for efficient sideways dumping.',
+      features: [
+        '88.4 kW (118.5 hp) EU Stage V compliant engine',
+        '3,700 kg maximum loading weight | 2.055 m³ heaped capacity',
+        '180° left and right skip-tip — sideways dumping without repositioning',
+        '65-degree skip tip angle — maximum load discharged in one operation',
+        'Combined traction force 72.2 kN for steep and uneven terrain',
+        'Automotive-style operator station with 5.7" colour display + rear camera',
+        'Air conditioning + Bluetooth/DAB radio (optional)',
+        '500-hour service intervals',
+        'Auto fuel transfer pump standard',
+        'TFM telematics + TSS immobiliser — both standard',
+      ]
+    },
+  ],
+
+  loaders: [
+    {
+      id: 'tl6r',
+      name: 'TL6R',
+      subtitle: 'Compact Track Loader',
+      weight: '',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/TrackedLoaders/TL6R/TL6R-Machine-Cutout.jpg.webp',
+      desc: 'The TL6R features a radial lift loader design and active power control that maintains engine power for optimal performance. Agile, easy to transport, and well suited for agriculture, landscaping, and rental.',
+      features: [
+        'Radial lift loader design',
+        'Active power control — engage or disengage during operation',
+        'Heavy-duty rear door protects radiator and hydraulic cooler',
+        'Rear-view camera with 5.7" colour display',
+        'Large panoramic rear-view mirror',
+        'Tilt-back operator station for easy maintenance',
+        'Large removable belly pans for cleaning access',
+        'Stage V emissions compliant',
+      ]
+    },
+    {
+      id: 'tl8r-2',
+      name: 'TL8R-2',
+      subtitle: 'Compact Track Loader',
+      weight: '',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/TrackedLoaders/TL8R-2/TL8R2-Portfoilo-Cutout.jpg.webp',
+      desc: 'The latest addition to the fully redesigned track loader lineup. Radial lift arm with outstanding visibility, a repositioned undercarriage design with double and triple flange track rollers, and quiet ride track technology.',
+      features: [
+        'Radial lift loader arm for maximum bucket breakout and lift forces',
+        'Fully welded one-piece frame with integrated crossmembers',
+        'See-through steps, sloped rear deck, and rear-view camera for visibility',
+        'Repositioned travel motors with internally routed drive lines',
+        'Double and triple flange track rollers — at least two contact points always',
+        'Quiet ride track design reduces noise and vibration',
+        '5.7" colour display + LED lighting package standard',
+        'High-torque spin turn',
+      ]
+    },
+    {
+      id: 'tl10v-2',
+      name: 'TL10V-2',
+      subtitle: 'Compact Track Loader',
+      weight: '',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/TrackedLoaders/TL10V-2/TL10V2-Machine-Cutout.jpg.webp',
+      desc: 'The TL10V-2 features a vertical lift loader arrangement for 5% greater operating capacity than the radial equivalent, plus increased lift height. Redesigned enlarged cab with smooth overhead door entry.',
+      features: [
+        'Vertical lift loader — 5% greater operating capacity over radial',
+        'Increased lift height and improved balance',
+        'DOC+DPF exhaust aftertreatment — latest emissions compliant',
+        'Redesigned enlarged cab with smooth low-effort overhead door',
+        'Standard + ECO work modes for efficient operation',
+        'Heavy-duty crossmember protects bucket cylinders',
+        'Floating-pad quiet track for reduced vibration and noise',
+        '5.7" colour display with machine information',
+      ]
+    },
+    {
+      id: 'tl12v-2',
+      name: 'TL12V-2',
+      subtitle: 'Compact Track Loader',
+      weight: '',
+      tfm: 'TFM standard on this model.',
+      img: 'Machine_Info/TrackedLoaders/TL12V-2/TL12V2-Machine-Cutout.jpg.webp',
+      desc: 'The TL12V-2 sets another benchmark for compact track loaders with a vertical lift loader delivering exceptional performance, improved tipping load, and rated operating capacity.',
+      features: [
+        'Vertical lift loader — exceptional performance and tipping load',
+        'Heavy-duty lift cylinders over-built for durability and lifting power',
+        'Outstanding rated operating capacity',
+        'Automotive-styled spacious interior',
+        'Updated rocker switch layout + 12V accessory outlet',
+        'Multiple cup holders',
+        'Simplified battery access via bolt-on left tower panel',
+      ]
+    },
+  ],
+};
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let currentCategory = 'excavators';
+let currentModel = null;
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+(function init() {
+  const params = new URLSearchParams(window.location.search);
+  const modelParam = params.get('model');
+  const catParam = params.get('cat');
+
+  // Find model across all categories
+  let found = null;
+  let foundCat = null;
+  for (const [cat, list] of Object.entries(MACHINES)) {
+    const m = list.find(m => m.id === modelParam);
+    if (m) { found = m; foundCat = cat; break; }
+  }
+
+  if (found) {
+    currentCategory = foundCat;
+  } else if (catParam && MACHINES[catParam]) {
+    currentCategory = catParam;
+  }
+
+  renderSidebar();
+  activateCategoryTab(currentCategory);
+
+  if (found) {
+    renderModel(found);
+  } else {
+    renderModel(MACHINES[currentCategory][0]);
+  }
+})();
+
+// ── Category switch ───────────────────────────────────────────────────────────
+function switchCategory(cat, btn) {
+  currentCategory = cat;
+  activateCategoryTab(cat);
+  renderSidebar();
+  renderModel(MACHINES[cat][0]);
+  updateURL(MACHINES[cat][0].id);
+}
+
+function activateCategoryTab(cat) {
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  const tab = document.getElementById('tab-' + cat);
+  if (tab) tab.classList.add('active');
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+function renderSidebar() {
+  const list = document.getElementById('sidebar-list');
+  list.innerHTML = '';
+  MACHINES[currentCategory].forEach(m => {
+    const a = document.createElement('a');
+    a.className = 'sidebar-item' + (currentModel && currentModel.id === m.id ? ' active' : '');
+    a.innerHTML = `<span>${m.name}</span>${m.weight ? `<span class="sidebar-weight">${m.weight}</span>` : ''}`;
+    a.href = 'machine.html?model=' + m.id;
+    list.appendChild(a);
+  });
+}
+
+// ── Model render ──────────────────────────────────────────────────────────────
+function renderModel(m) {
+  currentModel = m;
+
+  // Page meta
+  document.title = m.name + ' — Eastern Plant Sales & Services';
+
+  // Breadcrumb
+  const catLabels = { excavators: 'Excavators', dumpers: 'Tracked Dumpers', loaders: 'Track Loaders' };
+  const catShortLabels = { excavators: 'Excavator', dumpers: 'Tracked Dumper', loaders: 'Track Loader' };
+  document.getElementById('breadcrumb-cat').textContent = catLabels[currentCategory] || catShortLabels[currentCategory];
+  document.getElementById('breadcrumb-model').textContent = m.name;
+
+  // Header
+  document.getElementById('machine-weight-label').textContent = (m.weight ? m.weight + ' · ' : '') + catShortLabels[currentCategory];
+  document.getElementById('machine-name').textContent = m.name;
+  document.getElementById('machine-subtitle').textContent = m.subtitle;
+
+  // Description
+  document.getElementById('machine-desc').textContent = m.desc;
+
+  // Image
+  const img = document.getElementById('machine-img');
+  img.style.opacity = '0';
+  img.src = m.img;
+  img.alt = m.name + ' — ' + m.subtitle;
+  img.onload = () => { img.style.opacity = '1'; };
+
+  // Features
+  const fl = document.getElementById('feature-list');
+  fl.innerHTML = m.features.map(f => `<li>${f}</li>`).join('');
+
+  // TFM availability note
+  document.getElementById('tfm-availability').textContent = m.tfm || '';
+
+  // Close all accordions
+  document.querySelectorAll('.accordion-trigger').forEach(t => {
+    t.classList.remove('open');
+    t.nextElementSibling.classList.remove('open');
+  });
+
+  // Update sidebar active state
+  document.querySelectorAll('.sidebar-item').forEach(el => {
+    el.classList.toggle('active', el.href.includes('model=' + m.id));
+  });
+
+  // Scroll detail panel to top
+  window.scrollTo({ top: 120, behavior: 'smooth' });
+}
+
+// ── URL update ────────────────────────────────────────────────────────────────
+function updateURL(modelId) {
+  const url = new URL(window.location);
+  url.searchParams.set('model', modelId);
+  window.history.pushState({}, '', url);
+}
+
+// ── Accordion ─────────────────────────────────────────────────────────────────
+function toggleAccordion(trigger) {
+  const body = trigger.nextElementSibling;
+  const isOpen = trigger.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.accordion-trigger').forEach(t => {
+    t.classList.remove('open');
+    t.nextElementSibling.classList.remove('open');
+  });
+  // Open clicked if it was closed
+  if (!isOpen) {
+    trigger.classList.add('open');
+    body.classList.add('open');
+  }
+}
+</script>
+<script>
+// Mobile nav
+document.getElementById('burger').addEventListener('click', function() {
+  const open = document.getElementById('mobile-menu').classList.toggle('open');
+  this.setAttribute('aria-expanded', open);
+});
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Machines — Eastern Plant Sales &amp; Services</title>
-  <meta name="description" content="Browse Eastern Plant's range of Takeuchi compact and micro excavators available across Norfolk and Suffolk." />
+  <meta name="description" content="Browse the full Takeuchi range from Eastern Plant — excavators, tracked dumpers, and track loaders available new across Norfolk and Suffolk." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,6 +39,7 @@
       position: relative; font-size: 0.72rem; font-weight: 500;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: rgba(255,255,255,0.7); transition: color 0.2s ease;
+      text-decoration: none;
     }
     .nav-link::after {
       content: ''; position: absolute; bottom: -2px; left: 0;
@@ -57,6 +58,7 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       padding: 0.85rem 2rem; border: 1.5px solid #e9292d;
       transition: background 0.25s ease, transform 0.2s ease;
+      text-decoration: none;
     }
     .btn-primary:hover { background: #c0181c; border-color: #c0181c; }
     .btn-primary:active { transform: scale(0.98); }
@@ -72,23 +74,40 @@
       background: currentColor; flex-shrink: 0;
     }
 
+    /* ── Category tabs ── */
+    .cat-tab {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 0.9rem 1.5rem;
+      border-bottom: 2px solid transparent; color: rgba(255,255,255,0.45);
+      cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease;
+      background: none; border-left: none; border-right: none; border-top: none;
+      white-space: nowrap;
+    }
+    .cat-tab:hover { color: rgba(255,255,255,0.75); }
+    .cat-tab.active { color: #fff; border-bottom-color: #e9292d; }
+
+    /* ── Machine cards ── */
     .machine-card {
       background: #111320; border: 1px solid rgba(255,255,255,0.07);
       transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+      text-decoration: none; display: block; color: inherit;
     }
     .machine-card:hover { border-color: #e9292d; transform: translateY(-3px); }
-    .machine-card-img { aspect-ratio: 4/3; overflow: hidden; background: #1a1b2e; position: relative; }
-    .machine-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
-    .machine-card:hover .machine-card-img img { transform: scale(1.04); }
-    .machine-card-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,14,24,0.6) 0%, transparent 50%);
+    .machine-card-img {
+      aspect-ratio: 4/3; overflow: hidden;
+      background: #ffffff; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
     }
+    .machine-card-img img {
+      width: 100%; height: 100%; object-fit: contain;
+      transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+    }
+    .machine-card:hover .machine-card-img img { transform: scale(1.04); }
 
     footer { background: #070810; border-top: 1px solid rgba(255,255,255,0.06); }
-    .logo-light .fc1 { fill: #e9292d; }
-    .logo-light .fc2 { fill: #ffffff; }
-    .logo-light .fc3 { fill: rgba(255,255,255,0.55); }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
   </style>
 </head>
 <body>
@@ -121,118 +140,63 @@
       <a href="/contact.html" class="nav-link">Contact</a>
       <a href="/contact.html" class="btn-primary" style="padding:0.6rem 1.4rem;font-size:0.7rem;">Enquire Now</a>
     </div>
+    <button id="burger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu" aria-expanded="false" style="background:none;border:none;cursor:pointer;">
+      <span style="display:block;width:1.5rem;height:1.5px;background:#fff;border-radius:1px;"></span>
+      <span style="display:block;width:1.5rem;height:1.5px;background:#fff;border-radius:1px;"></span>
+      <span style="display:block;width:1.5rem;height:1.5px;background:#fff;border-radius:1px;"></span>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <div style="padding:1.5rem 1.5rem 2rem;display:flex;flex-direction:column;gap:1rem;border-top:1px solid rgba(255,255,255,0.07);">
+      <a href="/machines.html" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#fff;text-decoration:none;">Machines</a>
+      <a href="/#why" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;">Why Us</a>
+      <a href="/contact.html" style="font-size:0.82rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;">Contact</a>
+      <a href="/contact.html" style="display:flex;align-items:center;justify-content:center;background:#e9292d;color:#fff;font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.85rem 2rem;text-decoration:none;margin-top:0.25rem;">Enquire Now</a>
+      <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:1rem;margin-top:0.25rem;">
+        <a href="tel:01953304001" style="display:flex;align-items:center;gap:0.6rem;font-size:1rem;font-weight:700;color:#fff;text-decoration:none;margin-bottom:0.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e9292d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.57 3.38 2 2 0 0 1 3.56 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16l.5-.08Z"/></svg>
+          01953 304001
+        </a>
+        <a href="mailto:sales@easternplant.com" style="display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          sales@easternplant.com
+        </a>
+      </div>
+    </div>
   </div>
 </nav>
 
 <!-- Page header -->
 <section style="padding:10rem 0 5rem;background:#0d0e18;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 20%,rgba(233,41,45,0.07) 0%,transparent 60%);pointer-events:none;"></div>
-
-  <!-- Subtle brand mark -->
   <svg style="position:absolute;right:-4%;top:50%;transform:translateY(-50%);height:70vh;opacity:0.04;pointer-events:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.27 480.81" aria-hidden="true">
     <path d="M405.15,263.39c-.1-1.38-.22-28.08-.13-30.58V53.81c0-13.03-8.57-24.58-21.05-28.21C325.37,8.6,264.57,0,202.64,0c-8.95,0-18.07.19-27.02.58l-12.74.51C114.68,3.98,67.25,12.19,21.27,25.54,8.79,29.17.28,40.72.28,53.72v178.99c.06,2.54-.06,29.23-.16,30.61-.8,12.55,2.37,27.79,9.43,45.24,16.01,39.53,48.74,57.89,97.3,103.07,33.79,30.74,58.4,46.27,76.34,61.84,11.23,9.79,27.76,9.79,39.02,0,17.91-15.53,42.49-31.03,76.21-61.71,25.41-23.68,46.5-39.98,63.12-55.8l-3.24-3.21-11.74-11.62-.03-.03-5.68-5.29L37.73,54.16c2.28-1.67,4.85-2.95,7.64-3.75,39.82-11.55,80.9-18.68,122.64-21.18l11.04-.45c7.76-.32,15.63-.48,23.39-.48,53.62,0,106.31,7.44,157.04,22.17,10.81,3.15,18.23,13.16,18.23,24.42v154.99c-.06,2.18.03,25.32.13,26.5.32,5.07-.1,10.69-1.25,16.72l22.88,25.38c4.43-13.25,6.32-25.03,5.68-35.11M92.18,139.68v135.54l67.19-73.52,43.06,39.34-62.16,67.71,36.14,28.55c15.05,12.71,37.03,12.71,52.11.06l42.55-35.78,53.75,48.65c-11.43,9.85-24.55,20.79-39.44,34.66-29.2,26.57-50.51,39.98-66.01,53.43-9.75,8.47-24.03,8.47-33.79,0-15.53-13.48-36.84-26.92-66.1-53.52-42.04-39.15-70.4-55.03-84.27-89.27-6.13-15.15-8.86-28.33-8.15-39.21.07-1.19.19-24.29.13-26.5V80.9l64.98,58.79Z" fill="#e9292d"/>
     <path d="M303.2,123.09v82.41l-121.59-112.28h91.74c16.49,0,29.84,13.38,29.84,29.87" fill="#e9292d"/>
   </svg>
-
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
     <span class="section-label">The Range</span>
     <h1 style="font-size:clamp(3rem,7vw,7rem);font-weight:900;line-height:0.92;letter-spacing:-0.04em;margin-top:1rem;">
       Our Machines
     </h1>
     <p style="font-size:1rem;font-weight:300;line-height:1.75;color:#9c9c9c;margin-top:1.5rem;max-width:500px;">
-      Takeuchi's full compact excavator range — available new and used, with finance options, delivered to your site across Norfolk and Suffolk.
+      The full Takeuchi compact range — available new with finance options, delivered to your site across Norfolk and Suffolk.
     </p>
   </div>
 </section>
 
-<!-- Filter bar -->
-<div style="background:#111320;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 0;">
-  <div class="max-w-7xl mx-auto px-6 flex flex-wrap gap-3">
-    <button onclick="filterCards('all', this)" class="filter-btn active" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid #e9292d;background:#e9292d;color:#fff;cursor:pointer;transition:all 0.2s;">All</button>
-    <button onclick="filterCards('micro', this)" class="filter-btn" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;">Micro (0–2t)</button>
-    <button onclick="filterCards('compact', this)" class="filter-btn" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;">Compact (3–6t)</button>
-    <button onclick="filterCards('mid', this)" class="filter-btn" style="font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;padding:0.5rem 1.25rem;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;">Mid (6–9t)</button>
+<!-- Category tab bar -->
+<div style="background:#111320;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-6 flex overflow-x-auto" style="gap:0;">
+    <button class="cat-tab active" onclick="switchTab('excavators',this)" id="tab-excavators">Excavators <span id="count-excavators" style="font-size:0.6rem;opacity:0.5;"></span></button>
+    <button class="cat-tab" onclick="switchTab('dumpers',this)" id="tab-dumpers">Tracked Dumpers <span id="count-dumpers" style="font-size:0.6rem;opacity:0.5;"></span></button>
+    <button class="cat-tab" onclick="switchTab('loaders',this)" id="tab-loaders">Track Loaders <span id="count-loaders" style="font-size:0.6rem;opacity:0.5;"></span></button>
   </div>
 </div>
 
 <!-- Machine grid -->
 <section style="padding:4rem 0 7rem;background:#0d0e18;">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-3 gap-6" id="machine-grid">
-
-      <div class="machine-card" data-category="micro">
-        <div class="machine-card-img">
-          <img src="https://placehold.co/600x450/111320/444466?text=TB108" alt="Takeuchi TB108" loading="lazy" />
-        </div>
-        <div style="padding:1.75rem;">
-          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">0.8 Tonne · Micro</p>
-          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB108</h3>
-          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">The smallest Takeuchi. Zero tail-swing design for maximum versatility in ultra-tight spaces.</p>
-          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
-        </div>
-      </div>
-
-      <div class="machine-card" data-category="micro">
-        <div class="machine-card-img">
-          <img src="https://placehold.co/600x450/111320/444466?text=TB210" alt="Takeuchi TB210" loading="lazy" />
-        </div>
-        <div style="padding:1.75rem;">
-          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">1.0 Tonne · Micro</p>
-          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB210</h3>
-          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Exceptional digging performance in a compact, manoeuvrable package ideal for restricted-access sites.</p>
-          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
-        </div>
-      </div>
-
-      <div class="machine-card" data-category="micro">
-        <div class="machine-card-img">
-          <img src="https://placehold.co/600x450/111320/444466?text=TB216" alt="Takeuchi TB216" loading="lazy" />
-        </div>
-        <div style="padding:1.75rem;">
-          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">1.6 Tonne · Micro</p>
-          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB216</h3>
-          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Robust and reliable with exceptional stability. Perfect for landscaping, drainage, and utility work.</p>
-          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
-        </div>
-      </div>
-
-      <div class="machine-card" data-category="compact">
-        <div class="machine-card-img">
-          <img src="https://placehold.co/600x450/111320/444466?text=TB335" alt="Takeuchi TB335" loading="lazy" />
-        </div>
-        <div style="padding:1.75rem;">
-          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">3.5 Tonne · Compact</p>
-          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB335</h3>
-          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">The go-to workhorse for groundworks and civil projects. Outstanding power-to-weight ratio.</p>
-          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
-        </div>
-      </div>
-
-      <div class="machine-card" data-category="compact">
-        <div class="machine-card-img">
-          <img src="https://placehold.co/600x450/111320/444466?text=TB260" alt="Takeuchi TB260" loading="lazy" />
-        </div>
-        <div style="padding:1.75rem;">
-          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">6.0 Tonne · Compact</p>
-          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB260</h3>
-          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Powerful 6-tonne compact with advanced hydraulics and operator comfort for all-day productivity.</p>
-          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
-        </div>
-      </div>
-
-      <div class="machine-card" data-category="mid">
-        <div class="machine-card-img">
-          <img src="https://placehold.co/600x450/111320/444466?text=TB290" alt="Takeuchi TB290" loading="lazy" />
-        </div>
-        <div style="padding:1.75rem;">
-          <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">9.0 Tonne · Mid-Range</p>
-          <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">TB290</h3>
-          <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">Serious dig power with exceptional cycle times. Built for demanding commercial and infrastructure projects.</p>
-          <a href="/contact.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">Enquire →</a>
-        </div>
-      </div>
-
-    </div>
+    <div class="grid md:grid-cols-3 gap-6" id="machine-grid"></div>
 
     <!-- CTA block -->
     <div style="margin-top:5rem;padding:3rem;background:#111320;border:1px solid rgba(255,255,255,0.07);display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;">
@@ -257,25 +221,93 @@
 </footer>
 
 <script>
-function filterCards(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    b.style.background = 'transparent';
-    b.style.borderColor = 'rgba(255,255,255,0.15)';
-    b.style.color = 'rgba(255,255,255,0.6)';
-  });
-  btn.style.background = '#e9292d';
-  btn.style.borderColor = '#e9292d';
-  btn.style.color = '#fff';
+const MACHINES = {
+  excavators: [
+    { id:'tb210r',  name:'TB210R',         weight:'1.0 Tonne',  img:'Machine_Info/Excavators/TB210R/TB210R Compact Excavator | 1.1 Tonne.jpg.webp',   desc:'Retractable undercarriage, foldable ROPS, and minimal tail swing for maximum access in the tightest applications.' },
+    { id:'tb216',   name:'TB216',           weight:'1.6 Tonne',  img:'Machine_Info/Excavators/TB216/tb216-canopy-400-400x400.jpg.webp',                  desc:"The UK's favourite mini excavator — an excellent blend of power, functionality, and reliability." },
+    { id:'tb217r',  name:'TB217R',          weight:'1.7 Tonne',  img:'Machine_Info/Excavators/TB217R/TB217R-400-400-front-cutout-takeuchi-mini-excavator-buy-plant-hire.jpg.webp', desc:'Short-tail design with just 70mm overhang at 90° — ideal for utilities, streetworks, and confined urban sites.' },
+    { id:'tb220e',  name:'TB20e Electric',  weight:'1.9 Tonne',  img:'Machine_Info/Excavators/TB220e/08.png.webp',                                       desc:'Zero emissions, low noise, and performance on par with the diesel TB216. Fully electric Lithium-Ion powered.' },
+    { id:'tb320',   name:'TB320',           weight:'2.0 Tonne',  img:'Machine_Info/Excavators/TB320/TB320_Takeuchi_excavator_2-Tonne-digger_400x400_6.jpg.webp', desc:'Proportional controls and up to 4 service ports for outstanding attachment versatility on any site.' },
+    { id:'tb225',   name:'TB225',           weight:'2.5 Tonne',  img:'Machine_Info/Excavators/TB225/TB225-400-400-FRONT-CUTOUT-Takeuchi-excavators.jpg.webp', desc:'Retractable undercarriage meets electronic proportional aux control in one extremely versatile machine.' },
+    { id:'tb325r',  name:'TB325R',          weight:'2.5 Tonne',  img:'Machine_Info/Excavators/TB325R/TB325R-Canopy2-cutout.jpg.webp',                    desc:'New 3-Series. Under 2.5t for safe legal towing, 825mm tail swing radius, 3-year / 3,000-hour warranty.' },
+    { id:'tb230',   name:'TB230',           weight:'3.0 Tonne',  img:'Machine_Info/Excavators/TB230/TB230-400-400-FRONT-CUTOUT-Takeuchi-excavators.jpg.webp', desc:'Narrow width, conventional tail swing, and a wrap-around counterweight for stability and ground-level serviceability.' },
+    { id:'tb235-2', name:'TB235-2',         weight:'3.5 Tonne',  img:'Machine_Info/Excavators/TB235-2/TB235-2-400-400-FRONT-CUTOUT-Takeuchi-excavators.jpg.webp', desc:'Outstanding blend of performance, speed, and versatility for utility work, landscaping, and construction.' },
+    { id:'tb335r',  name:'TB335R',          weight:'3.5 Tonne',  img:'Machine_Info/Excavators/TB335R/400x400-Takeuchi-TB335r-3.5-tonne-excavator-300x300-1-400x400.jpg.webp', desc:'New 3-Series minimal tail swing with fully redesigned interior, HD colour monitor, and jog dial controls.' },
+    { id:'tb240',   name:'TB240 DPF',       weight:'4.0 Tonne',  img:'Machine_Info/Excavators/TB240/TB240-Machine-Cutout.jpg',                           desc:'Exceptional power and performance for a 4-tonne machine, with DPF for latest Stage V emissions compliance.' },
+    { id:'tb350r',  name:'TB350R',          weight:'5.0 Tonne',  img:'Machine_Info/Excavators/TB350R/TB350R_1.jpg',                                      desc:'Short tail swing 5-tonne with high flow aux up to 24.6 gpm, standard long arm, and Kubota engine (no DPF).' },
+    { id:'tb250-2', name:'TB250-2',         weight:'5.0 Tonne',  img:'Machine_Info/Excavators/TB250-2/TB250-2.jpg.webp',                                 desc:'Conventional tail swing for greater stability and a larger operator station. Primary aux up to 24.2 gpm.' },
+    { id:'tb257fr', name:'TB257FR',         weight:'5.8 Tonne',  img:'Machine_Info/Excavators/TB257FR/TB257FR_400.jpg.webp',                             desc:'Patented side-to-side offset boom. Near-full rotation within track width — ideal for road and bridge construction.' },
+    { id:'tb260',   name:'TB260 DPF',       weight:'6.0 Tonne',  img:'Machine_Info/Excavators/TB260/TB260-400-400-Takeuchi-Excavator-Digging-plant-machinery-buy.jpg.webp', desc:'Exceptional power, wide working range, and a larger-than-average cabin for all-day excavating productivity.' },
+    { id:'tb370',   name:'TB370',           weight:'7.0 Tonne',  img:'Machine_Info/Excavators/TB370/TB370-450x450-Takeuchi-Excavator-heavy-plant-machinery-450x400.jpg.webp', desc:'New 3-Series with 8" touchscreen, 3 aux circuits to mid-arm, best-in-class working range, and very low noise.' },
+    { id:'tb370w',  name:'TB370W',          weight:'7.5 Tonne',  img:'Machine_Info/Excavators/TB370W/TB370W-Excavator-7-tonne-takeuchi-digger-400x400-5.jpg', desc:'Powerful wheeled excavator with Stage V engine, load-sensing hydraulics, 8" touchscreen, and DAB radio.' },
+    { id:'tb280fr', name:'TB280FR',         weight:'8.5 Tonne',  img:'Machine_Info/Excavators/TB280FR/TB280FR-400-400-Takeuchi-Excavator.jpg.webp',       desc:'Patented STS offset boom for unmatched visibility and near-full rotation within the track footprint.' },
+    { id:'tb290-2', name:'TB290-2',         weight:'9.0 Tonne',  img:'Machine_Info/Excavators/TB290-2/TB290-2-400-400-Takeuchi-plant-excavator-operator-cabin-digger.jpg.webp', desc:'World-class 9-tonne with 59.1kN breakout force, mono or 2-piece boom, and load-sensing hydraulics.' },
+    { id:'tb395w',  name:'TB395W',          weight:'10.6 Tonne', img:'Machine_Info/Excavators/TB395W/tb395w-wheeled-excavator-.jpg',                     desc:'10,627 kg wheeled excavator with 114hp, 18 mph road speed, 270° cameras, and 4-wheel/crab steer.' },
+    { id:'tb2150',  name:'TB2150',          weight:'15.8 Tonne', img:'Machine_Info/Excavators/TB2150/TB2150-400-400-Takeuchi-Excavator.jpg.webp',         desc:'The largest Takeuchi — standard pivot boom, dozer blade, automotive interior, and auto climate control.' },
+    { id:'tb2150r', name:'TB2150R',         weight:'15.8 Tonne', img:'Machine_Info/Excavators/TB2150R/TB2150R-450-450-Front-Cutout-Takeuchi-Excavator-450x400.jpg.webp', desc:'Fixed boom for greater stability — exceptional 19\'9.4" dig depth, 270° cameras, high flow aux to 59 gpm.' },
+  ],
+  dumpers: [
+    { id:'tcr50-3', name:'TCR50-3',  weight:'6.5 Tonne', img:'Machine_Info/TrackedDumpers/TCR50-3 Compact Tracked Dumper/TCR50-3-tracked-dumper-takeuchi-crawler.jpg.webp', desc:'180° left/right skip-tip, 3,700 kg capacity, 88.4 kW Stage V engine, and TFM + TSS both standard.' },
+  ],
+  loaders: [
+    { id:'tl6r',    name:'TL6R',    weight:'', img:'Machine_Info/TrackedLoaders/TL6R/TL6R-Machine-Cutout.jpg.webp',         desc:'Radial lift loader with active power control — agile and well suited for agriculture, landscaping, and rental.' },
+    { id:'tl8r-2',  name:'TL8R-2', weight:'', img:'Machine_Info/TrackedLoaders/TL8R-2/TL8R2-Portfoilo-Cutout.jpg.webp',     desc:'Latest generation radial lift loader with outstanding visibility, quiet ride tracks, and high-torque spin turn.' },
+    { id:'tl10v-2', name:'TL10V-2',weight:'', img:'Machine_Info/TrackedLoaders/TL10V-2/TL10V2-Machine-Cutout.jpg.webp',     desc:'Vertical lift loader — 5% greater operating capacity and increased lift height. Redesigned spacious cabin.' },
+    { id:'tl12v-2', name:'TL12V-2',weight:'', img:'Machine_Info/TrackedLoaders/TL12V-2/TL12V2-Machine-Cutout.jpg.webp',     desc:'Benchmark vertical lift loader delivering exceptional tipping load, rated operating capacity, and refined interior.' },
+  ],
+};
 
-  document.querySelectorAll('#machine-grid .machine-card').forEach(card => {
-    if (cat === 'all' || card.dataset.category === cat) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
+const catLabels = {
+  excavators: 'Excavator',
+  dumpers: 'Tracked Dumper',
+  loaders: 'Track Loader',
+};
+
+let currentCat = 'excavators';
+
+function renderGrid(cat) {
+  const grid = document.getElementById('machine-grid');
+  grid.innerHTML = '';
+  MACHINES[cat].forEach(m => {
+    const card = document.createElement('a');
+    card.className = 'machine-card';
+    card.href = '/machine.html?model=' + m.id;
+    card.innerHTML = `
+      <div class="machine-card-img">
+        <img src="${m.img}" alt="${m.name}" loading="lazy" onerror="this.style.display='none'" />
+      </div>
+      <div style="padding:1.75rem;">
+        <p style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#e9292d;margin-bottom:0.4rem;">${m.weight ? m.weight + ' · ' : ''}${catLabels[cat]}</p>
+        <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">${m.name}</h3>
+        <p style="font-size:0.85rem;font-weight:300;line-height:1.65;color:#9c9c9c;margin-bottom:1.25rem;">${m.desc}</p>
+        <span class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.72rem;">View Machine →</span>
+      </div>`;
+    grid.appendChild(card);
   });
 }
-</script>
 
+function switchTab(cat, btn) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(cat);
+}
+
+// Init counts
+Object.entries(MACHINES).forEach(([cat, list]) => {
+  const el = document.getElementById('count-' + cat);
+  if (el) el.textContent = list.length;
+});
+
+renderGrid('excavators');
+
+// Mobile nav
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+burger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+</script>
 </body>
 </html>
